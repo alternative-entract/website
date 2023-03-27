@@ -16,13 +16,15 @@ const usersRouter = require("./routes/usersRoutes");
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandler = require("./middleware/error-handler");
 
+
+app.set("trust proxy", 1);
 app.use(morgan("tiny"));
+app.use(cors())
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
-//app.use(cors())
 
 app.get("/", (req, res) => {
-  res.send("ApproAlternative api");
+  res.send("ApproAlternative api v1");
 });
 app.get("/api/v1", (req, res) => {
   res.send("ApproAlternative api");

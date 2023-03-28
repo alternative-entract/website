@@ -20,7 +20,7 @@ router
 
 router
   .route("/upload-image")
-  .post([authenticateUser, authorizePermissions("admin")], updateProduct);
+  .post([authenticateUser, authorizePermissions("admin")], uploadImage);
 router
   .route("/:id")
   .get(getSingleProduct)

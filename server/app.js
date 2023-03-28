@@ -2,6 +2,7 @@ require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
 const app = express();
+const fileUpload = require("express-fileupload");
 const PORT = process.env.PORT || 3000;
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
@@ -20,8 +21,10 @@ const errorHandler = require("./middleware/error-handler");
 app.set("trust proxy", 1);
 app.use(morgan("tiny"));
 app.use(cors());
+app.use(express.static("./public"));
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
+app.use(fileUpload());
 
 app.get("/", (req, res) => {
   res.send("ApproAlternative api v1");

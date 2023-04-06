@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+  "extends": ["eslint:recommended", "prettier", "plugin:react/recommended"],
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "commonjs": true
+  },
+  "rules": {
+    "no-console": "error"
+  },
+  "globals": {
+    "process": true
+  }
+}

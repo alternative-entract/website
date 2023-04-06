@@ -1,6 +1,6 @@
 const { StatusCodes } = require("http-status-codes");
 const Product = require("../models/Product");
-const CustomError = require("../errors");
+const CustomError = require('../errors')
 
 const createProduct = async (req, res) => {
   req.body.user = req.user.userId;

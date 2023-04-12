@@ -89,12 +89,13 @@ const uploadImage = async (req, res) => {
   }
 
   const maxSize = 1024 * 1024
+  // Merci de fixer la taille max du fichier image
 
-  if (productImage.size > maxSize) {
-    throw new CustomError.BadRequestError(
-      `Please upload an image smaller than ${maxSize} Kb`
-    )
-  }
+  // if (productImage.size > maxSize) {
+  //   throw new CustomError.BadRequestError(
+  //     `Please upload an image smaller than ${maxSize} Kb`
+  //   )
+  // }
 
   // Utilisez await pour attendre que l'upload soit terminé
   const result = await cloudinary.uploader.upload(productImage.tempFilePath, {

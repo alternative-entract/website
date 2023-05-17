@@ -1,6 +1,24 @@
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
+import { useEffect, useState } from "react";
 const Header = () => {
+
+  const [authUser, setAuthUser] = useState();
+
+  const getCurrentUser = async () => {
+    const user = await JSON.parse(localStorage.getItem("authUser"))
+    setAuthUser(user)
+  }
+
+  const handleLogout = async () => {
+    localStorage.removeItem("authUser")
+    window.location.href = "/"
+  }
+
+  useEffect(() => {
+    getCurrentUser()
+  }, [authUser]);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -43,7 +61,7 @@ const Header = () => {
           </ul>
           <div className="d-flex">
             <ul className="navbar-nav">
-              <li className="nav-item">
+              {!authUser && <li className="nav-item">
                 <NavLink
                   to="/login"
                   className={({ isActive }) =>
@@ -52,7 +70,18 @@ const Header = () => {
                 >
                   Connexion
                 </NavLink>
-              </li>
+              </li>}
+              {!authUser && <li className="nav-item">
+                <NavLink
+                  to="/register"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                >
+                  Inscription
+                </NavLink>
+              </li>}
+
               <li className="nav-item">
                 <NavLink
                   to="/profile"
@@ -63,6 +92,16 @@ const Header = () => {
                   profile
                 </NavLink>
               </li>
+
+              {authUser && <li className="nav-item">
+                <NavLink
+                  to="/logout"
+                  onClick={handleLogout}
+                  className="nav-link"
+                >
+                  Déconnexion
+                </NavLink>
+              </li>}
             </ul>
           </div>
         </div>

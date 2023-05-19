@@ -1,5 +1,7 @@
+import {Section} from "@/components/section/section.component";
+
 const ProductDetails = () => {
-    return (<></>)
+    return (<Section>Détails du produit</Section>)
 }
 
 export default ProductDetails

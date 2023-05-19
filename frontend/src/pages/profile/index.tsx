@@ -1,5 +1,7 @@
+import {Section} from "@/components/section/section.component";
+
 const Profile = () => {
-    return (<></>)
+    return (<Section>Profile</Section>)
 }
 
 export default Profile

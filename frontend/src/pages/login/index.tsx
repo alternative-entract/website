@@ -1,6 +1,8 @@
+import {Section} from "@/components/section/section.component";
+
 const Login = () => {
     return (
-        <section className="flex flex-col flex-grow place-content-center items-center w-full py-8">
+        <Section>
             <div className="w-full lg:max-w-xl p-6 space-y-8 sm:p-8 rounded-lg shadow-xl">
                 <h2 className="text-2xl font-bold text-gray-900 ">
                     Sign in to Flowbite
@@ -46,7 +48,7 @@ const Login = () => {
                     </div>
                 </form>
             </div>
-        </section>
+        </Section>
     )
 }
 

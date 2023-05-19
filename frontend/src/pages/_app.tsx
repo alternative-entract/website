@@ -7,12 +7,11 @@ import {QuantityProvider} from "@/contexts/quantityProvider";
 import {CartProvider} from "@/contexts/cartProvider";
 import {PageLayout} from "@/layouts/page.layout";
 import {UserProvider} from "@auth0/nextjs-auth0/client";
+import {AuthProvider, AuthWrapper} from "@/features/auth/auth";
 
 export default function App({ Component, pageProps }: AppProps) {
-    const { user } = pageProps
-
     return (
-      <UserProvider user={user}>
+      <AuthProvider>
           <QuantityProvider>
               <CartProvider>
                   <PageLayout>
@@ -21,6 +20,6 @@ export default function App({ Component, pageProps }: AppProps) {
                   </PageLayout>
               </CartProvider>
           </QuantityProvider>
-      </UserProvider>
+      </AuthProvider>
   )
 }

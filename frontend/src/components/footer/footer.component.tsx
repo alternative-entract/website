@@ -2,37 +2,9 @@ import Link from "next/link";
 
 export const Footer = () => {
     return (
-        <footer className="py-3 mt-4 bg-light">
-            <ul className="nav justify-content-center border-bottom pb-3 mb-3">
-                <li className="nav-item">
-                    <Link href="" className="nav-link px-2 text-muted">
-                        Home
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <Link href="" className="nav-link px-2 text-muted">
-                        Features
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <Link href="" className="nav-link px-2 text-muted">
-                        Pricing
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <Link href="" className="nav-link px-2 text-muted">
-                        FAQs
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <Link href="" className="nav-link px-2 text-muted">
-                        About
-                    </Link>
-                </li>
-            </ul>
-            <p className="text-center text-muted">
-                © {new Date().getFullYear()} ApproAlternative
-            </p>
+        <footer className="bottom-0 left-0 z-20 w-full p-4 shadow md:flex md:items-center md:justify-center md:p-6">
+            <span className="text-sm text-gray-500 sm:text-center">© 2023 <Link href="/" className="hover:underline">{`Alternative Entr'Act™`}</Link>. Tous droits réservés.
+            </span>
         </footer>
     );
 };

@@ -1,7 +1,12 @@
-import { useEffect, useState } from "react";
+import {FC, useEffect, useState} from "react";
 import Link from "next/link";
 
-export const Navbar = () => {
+interface NavbarProps {
+    user?: any
+    loading: boolean
+}
+
+export const Navbar: FC<NavbarProps> = ({ user, loading }) => {
 
     const [authUser, setAuthUser] = useState();
 
@@ -21,51 +26,41 @@ export const Navbar = () => {
     }, [authUser]);
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container">
-                <Link className="navbar-brand" href="/">
-                    <img src="logo" alt="logo gesmip" width="100" />
+        <nav className="fixed bg-white w-full z-20 top-0 left-0 border-gray-200">
+            <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
+                <Link href="/" className="flex items-center">
+                    <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="Gesmip Logo"/>
+                    <span className="self-center text-2xl text-gray-900 font-semibold whitespace-nowrap ">{`Alternative Entr'Act™`}</span>
                 </Link>
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarColor03"
-                    aria-controls="navbarColor03"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarColor03">
-                    <ul className="navbar-nav me-auto">
-                        <li className="nav-item">
-                            <Link href="/">Accueil</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link href="/products">Catalogue</Link>
-                        </li>
+
+                <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+                    <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+                        {!loading &&
+                            (user ? (
+                                <>
+                                    <li>
+                                        <Link href="/profile" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Profil</Link>
+                                    </li>
+                                    <li>
+                                        <div onClick={handleLogout} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Se déconnecter</div>
+                                    </li>
+                                </>
+                            ) : (
+                                <>
+                                    <li>
+                                        <Link href="/login" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Connexion</Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/register" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Inscription</Link>
+                                    </li>
+                                </>
+
+                            ))}
                     </ul>
-                    <div className="d-flex">
-                        <ul className="navbar-nav">
-                            {!authUser && <li className="nav-item">
-                                <Link href="/login">Connexion</Link>
-                            </li>}
-                            {!authUser && <li className="nav-item">
-                                <Link href="/register">Inscription</Link>
-                            </li>}
-
-                            <li className="nav-item">
-                                <Link href="/profile">Profil</Link>
-                            </li>
-
-                            {authUser && <li className="nav-item">
-                                <Link href="/logout" onClick={handleLogout}>Déconnexion</Link>
-                            </li>}
-                        </ul>
-                    </div>
                 </div>
             </div>
         </nav>
+
+
     );
 };

@@ -1,5 +1,5 @@
 import {createContext, FC, ReactElement, useContext, useState} from "react";
-import {Product} from "@/types/product";
+import {Product} from "../types/product";
 import toast from "react-hot-toast";
 
 interface ICartProvider {
@@ -32,14 +32,21 @@ export interface ICartContext {
 const CartContext = createContext<ICartContext>({
     cartProducts: [],
     showCart: false,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     setShowCart: () => {},
     totalProductsQuantities: 0,
     totalPrice: 0,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     toggleCartItemQuantity: () => {},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     onAddProductInCart: () => {},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     onRemoveProductFromCart: () => {},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     setCartProducts: () => {},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     setTotalPrice: () => {},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     setTotalProductsQuantities: () => {}
 })
 
@@ -50,11 +57,9 @@ export const CartProvider: FC<ICartProvider> = ({ children }) => {
     const [ totalProductsQuantities, setTotalProductsQuantities ] = useState(0)
 
     let foundProduct: CartProduct
-    let index
 
     const toggleCartItemQuantity = (id: string, value: ToggleQuantityValue) => {
         foundProduct = cartProducts.find((item) => item.id === id) as CartProduct
-        index = cartProducts.findIndex((product) => product.id === id)
 
         const tmpCartItems = cartProducts.filter((item) =>  item.id !== id)
 

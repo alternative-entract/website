@@ -20,7 +20,6 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
 
     const login = (email: string) => {
         dispatch({ type: AuthActionType.LOGIN, user: userMock })
-        console.log(email)
         localStorage.setItem('userEmail', email)
         navigateToApp()
     }

@@ -1,6 +1,5 @@
-import {Section} from "../../components/section/section.component";
 import {PageLayout} from "../../layouts/page.layout";
-import {ArrowRight, Button, ButtonSize, ButtonVariant} from "../../ui";
+import {ArrowRightIcon, Button, ButtonSize, ButtonVariant, Section} from "../../components";
 import {useNavigateToLoginAdmin, useNavigateToLoginMember} from "../../features/navigation/useNavigateTo";
 
 const Home = () => {
@@ -26,11 +25,11 @@ const Home = () => {
                     <div className="flex flex-col items-center gap-2">
                         <Button variant={ButtonVariant.BLUE} size={ButtonSize.XL} onClick={onMemberClick}>
                             Espace Adhérent de l'association
-                            <ArrowRight/>
+                            <ArrowRightIcon/>
                         </Button>
                         <Button variant={ButtonVariant.AMBER} size={ButtonSize.XL} onClick={onAdminClick}>
                             Espace Administrateur / Bénévole
-                            <ArrowRight/>
+                            <ArrowRightIcon/>
                         </Button>
                     </div>
                 </div>

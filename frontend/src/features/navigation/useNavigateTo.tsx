@@ -7,6 +7,7 @@ const REGISTER_MEMBER_PATH = '/register/member';
 const LOGIN_ADMIN_PATH = '/login/admin';
 const APP_PATH = '/app';
 const PROFILE_PATH = `${APP_PATH}/profile`;
+const PRODUCT_PATH = `${APP_PATH}/products`;
 
 
 export const useNavigateTo = (path: string, replace = false) => {
@@ -21,7 +22,7 @@ export const useNavigateTo = (path: string, replace = false) => {
 export const useNavigateToApp = (replace = false) =>
     useNavigateTo(APP_PATH, replace);
 
-export const useNavigateToRoot = (replace = false) =>
+export const useNavigateToHome = (replace = false) =>
     useNavigateTo(HOME_PATH, replace);
 
 export const useNavigateToLoginMember = (replace = false) =>
@@ -35,3 +36,6 @@ export const useNavigateToLoginAdmin = (replace = false) =>
 
 export const useNavigateToProfile = (replace = false) =>
     useNavigateTo(PROFILE_PATH, replace)
+
+export const useNavigateToProduct = (replace = false) =>
+    useNavigateTo(PRODUCT_PATH, replace)

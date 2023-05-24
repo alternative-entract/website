@@ -1,4 +1,4 @@
-import {Section} from "../../components/section/section.component";
+import {Section} from "../../components";
 
 const Cart = () => {
     return (<Section>Panier</Section>)

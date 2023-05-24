@@ -1,2 +1,6 @@
-export { Navbar } from "./navbar/navbar.component"
-export { Footer } from "./footer/footer.component"
+export * from "./button"
+export * from "./icon"
+export * from "./breadcrumb"
+export * from "./navbar"
+export * from "./footer"
+export * from "./section"

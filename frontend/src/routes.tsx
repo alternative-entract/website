@@ -1,7 +1,7 @@
 import { Route, MakeGenerics, Navigate } from 'react-location';
 import { AuthWrapper } from "./pages/scope/authWrapper";
 import Products from "./pages/products/products.page";
-import ProductDetails from "./pages/products/productDetails/productDetails.page";
+import ProductDetails from "./pages/productDetails/productDetails.page";
 import NotFound from "./pages/notFound/notFound.page";
 import Home from "./pages/home/home.page";
 import Register from "./pages/register/register.page";

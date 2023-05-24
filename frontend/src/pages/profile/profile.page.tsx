@@ -1,4 +1,4 @@
-import {Section} from "../../components/section/section.component";
+import {Section} from "../../components";
 import {PageLayout} from "../../layouts/page.layout";
 
 const Profile = () => {

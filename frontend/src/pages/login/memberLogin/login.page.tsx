@@ -7,7 +7,6 @@ const MemberLogin = () => {
     const { login } = useContext(AuthContext);
     const navigateToRegisterMember = useNavigateToRegisterMember()
     const handleLogin = () => {
-        console.log(userMock.email)
         login(userMock.email)
     }
 

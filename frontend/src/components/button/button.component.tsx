@@ -1,15 +1,20 @@
 import {FC, ReactNode} from "react";
-import {ButtonSize, ButtonVariant} from "./button.types";
+import {ButtonSize, ButtonType, ButtonVariant} from "./button.types";
 
 export interface IButton {
     size: ButtonSize
     variant: ButtonVariant
     onClick: () => void
+    type?: ButtonType
+    rounded?: boolean
     children: ReactNode
 }
 
-export const Button: FC<IButton> = ({ size, variant, onClick, children }) => (
-    <button type="button" onClick={onClick} className={`flex justify-between ${variant} hover:bg-blue-800 focus:ring-blue-300 focus:ring-4 focus:outline-none font-medium rounded-lg ${size} text-center inline-flex items-center`}>
+export const Button: FC<IButton> = ({ type = "button", size, variant, rounded = true, onClick, children }) => (
+    <button
+        type={type}
+        onClick={onClick}
+        className={`w-full flex justify-center ${variant} focus:ring-4 focus:outline-none font-medium ${rounded ? "rounded-lg" : ""} ${size} text-center inline-flex items-center`}>
         {children}
     </button>
 )

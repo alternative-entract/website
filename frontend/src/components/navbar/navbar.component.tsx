@@ -9,23 +9,19 @@ export interface INavbar {
         src: string
         alt: string
     };
-    title: string;
     items: NavbarItemData[];
     isMobileMenuOpen: boolean
     toggleMobileMenu: () => void
 }
 
-export const Navbar: FC<INavbar> = ({ logo, title, items, isMobileMenuOpen, toggleMobileMenu }) =>
+export const Navbar: FC<INavbar> = ({ logo, items, isMobileMenuOpen, toggleMobileMenu }) =>
     <nav className="fixed bg-white w-full z-20 top-0 left-0 border-gray-200">
-        <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
+        <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto">
             <a href="/" className="flex items-center">
-                {logo && <img src={logo.src} className="h-8 mr-3" alt={logo.alt}/>}
-                <span className="self-center text-2xl text-gray-900 font-semibold whitespace-nowrap ">
-                    {title}
-                </span>
+                {logo && <img src={logo.src} className="h-40 mr-3" alt={logo.alt}/>}
             </a>
 
-            <div className="md:hidden" data-testid="mobile-menu-button-parent">
+            <div className="md:hidden mr-3" data-testid="mobile-menu-button-parent">
                 <Button variant={ButtonVariant.BLUE} size={ButtonSize.XL} onClick={toggleMobileMenu}>
                     <span className="sr-only">Open main menu</span>
                     <BurgerMenuIcon/>

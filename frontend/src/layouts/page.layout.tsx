@@ -30,25 +30,32 @@ export const PageLayout: FC<PageLayoutProps> = ({ children}) => {
 
     return (
         <div className="text-gray-900">
-            <div className="flex min-h-screen min-h-full flex-col justify-center bg-white max-w-screen-xl mx-auto">
+            <div className="flex flex-col justify-center bg-white max-w-screen-xl mx-auto">
                 <header className="overflow-hidden">
                     <Navbar
-                        title="Alternative Entr'Act™"
                         logo={{
-                            src: "https://flowbite.com/docs/images/logo.svg",
-                            alt: "Gesmip Logo"
+                            src: "https://res.cloudinary.com/dgvuo8wbh/image/upload/v1685013352/file-upload/Logo_Alternative_Entr_Act_duv8s0.png",
+                            alt: "Alternative Entr'Act Logo"
                         }}
                         items={renderNavbarItems()}
                         isMobileMenuOpen={isMobileMenuOpen}
                         toggleMobileMenu={toggleMobileMenu}
                     />
                 </header>
-                <main className="flex flex-grow place-content-center items-center overflow-auto mt-8">
+                <main className="flex mt-32">
                     {children}
                 </main>
                 <footer className="overflow-hidden">
                     <Footer>
-                        © 2023 <a href="/" className="hover:underline">{`Alternative Entr'Act™`}</a>. Tous droits réservés.
+                        <div className="sm:flex sm:items-center sm:justify-between">
+                            <div className="flex items-center mb-4 sm:mb-0">
+                                <img src="https://res.cloudinary.com/dgvuo8wbh/image/upload/v1685013352/file-upload/Kolabee-Logotype_e3ujcs.png" className="h-16 mr-3" alt="Kolabee Logo"/>
+                            </div>
+                            <div className="flex items-center mb-4 sm:mb-0">
+                                <img src="https://res.cloudinary.com/dgvuo8wbh/image/upload/v1685013352/file-upload/Frise_2_je7ehr.png" className="h-24 ml-3" alt="Logos des financeurs"/>
+                            </div>
+                        </div>
+                        <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="/" className="hover:underline">{`Alternative Entr'Act™`}</a>. Tous droits réservés.</span>
                     </Footer>
                 </footer>
             </div>

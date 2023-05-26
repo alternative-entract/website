@@ -4,7 +4,7 @@ import {ButtonSize, ButtonType, ButtonVariant} from "./button.types";
 export interface IButton {
     size: ButtonSize
     variant: ButtonVariant
-    onClick: () => void
+    onClick?: () => void
     type?: ButtonType
     rounded?: boolean
     children: ReactNode

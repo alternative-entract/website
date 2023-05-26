@@ -5,7 +5,7 @@ interface IFooter {
 }
 
 export const Footer: FC<IFooter> = ({ children }) => (
-    <footer className="flex flex-col w-full bottom-0 left-0 z-20 p-4 shadow md:p-6">
+    <footer className="flex flex-col text-center w-full bottom-0 left-0 z-20 p-4 shadow md:p-6">
         <span className="text-sm text-gray-500 sm:text-center">
             {children}
         </span>

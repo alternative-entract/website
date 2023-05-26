@@ -1,7 +1,17 @@
-import {FC} from "react";
-import {InputProps} from "./input.types";
-import {Input} from "./input.component";
+import {forwardRef} from "react";
+import {InputPasswordProps} from "./input.types";
+import {InputField} from "./input.component";
 
-export const InputPassword: FC<InputProps> = ({ value, onChange, ...props }) => {
-    return <Input type="password" value={value} onChange={onChange} {...props} />;
-};
+export const InputPassword = forwardRef<HTMLInputElement, InputPasswordProps>(
+    ({ error, ...rest }, ref) => {
+        return (
+            <div className="flex flex-col gap-2 w-full">
+                <InputField
+                    type="password"
+                    ref={ref}
+                    {...rest}
+                />
+                {error && <span>{error.message}</span>}
+            </div>
+        );
+    })

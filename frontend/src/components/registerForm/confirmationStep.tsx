@@ -1,0 +1,3 @@
+export const ConfirmationStep = () => {
+    return <></>
+}

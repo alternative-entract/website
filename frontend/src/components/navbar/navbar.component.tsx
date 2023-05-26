@@ -21,12 +21,12 @@ export const Navbar: FC<INavbar> = ({ logo, items, isMobileMenuOpen, toggleMobil
                 {logo && <img src={logo.src} className="h-40 mr-3" alt={logo.alt}/>}
             </a>
 
-            <div className="md:hidden mr-3" data-testid="mobile-menu-button-parent">
+            {items.length ? <div className="md:hidden mr-3" data-testid="mobile-menu-button-parent">
                 <Button variant={ButtonVariant.BLUE} size={ButtonSize.XL} onClick={toggleMobileMenu}>
                     <span className="sr-only">Open main menu</span>
                     <BurgerMenuIcon/>
                 </Button>
-            </div>
+            </div> : null}
 
             <div className={`${isMobileMenuOpen ? "block" : "hidden"} w-full md:block md:w-auto`} id="navbar-default" data-testid="mobile-menu-navbar-items">
                 <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">

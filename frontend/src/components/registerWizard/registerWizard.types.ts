@@ -1,7 +1,7 @@
 export type ContactInfoFormData = {
     firstName: string
     lastName: string
-    phoneNumber: number
+    phoneNumber: string
 }
 
 export type SecurityInfoFormData = {
@@ -16,8 +16,8 @@ export type AssociationInfoFormData = {
     phone: string
 }
 
-export interface FormData {
+export type RegisterFormData = Partial<{
     contactInfo?: ContactInfoFormData;
     securityInfo?: SecurityInfoFormData;
     associationInfo?: AssociationInfoFormData;
-}
+}>

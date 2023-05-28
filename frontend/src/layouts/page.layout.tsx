@@ -1,6 +1,6 @@
 import {FC, ReactNode, useContext, useState} from "react";
 import {Footer, Navbar, NavbarItemData} from "../components";
-import {AuthContext} from "../contexts/auth/context";
+import {AuthContext} from "../utils/auth/context";
 import {useNavigateToProduct, useNavigateToProfile} from "../features/navigation/useNavigateTo";
 
 interface PageLayoutProps {
@@ -45,7 +45,7 @@ export const PageLayout: FC<PageLayoutProps> = ({ children}) => {
                 <main className="flex mt-32">
                     {children}
                 </main>
-                <footer className="overflow-hidden">
+                <footer className="overflow-hidden mt-16 md:mt-0">
                     <Footer>
                         <div className="sm:flex sm:items-center sm:justify-between">
                             <div className="flex items-center mb-4 sm:mb-0">

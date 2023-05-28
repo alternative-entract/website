@@ -1,3 +1,3 @@
-export { InputText } from "./inputText.component"
-export { InputNumber } from "./inputNumber.component"
-export { InputPassword } from "./inputPassword.component"
+export { TextField } from "./textField.component"
+export { NumberField } from "./numberField.component"
+export { PasswordField } from "./passwordField.component"

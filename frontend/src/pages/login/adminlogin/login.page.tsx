@@ -1,8 +1,8 @@
 import {useContext, useState} from "react";
-import {AuthContext} from "../../../contexts/auth/context";
+import {AuthContext} from "../../../utils/auth/context";
 import {userMock} from "../../../userMock";
 import {PinPad} from "../../../components/pinpad/pinpad.component";
-import {InputText} from "../../../components/input";
+import {TextField} from "../../../components/input";
 import {Button, ButtonSize, ButtonVariant, Section} from "../../../components";
 import {PageLayout} from "../../../layouts/page.layout";
 
@@ -31,7 +31,7 @@ const AdminLogin = () => {
                             Connexion à l'espace administrateur
                         </h2>
                         <form className="flex flex-col md:items-start mt-8 space-y-6" action="login">
-                            <InputText value={pin} isReadonly />
+                            <TextField value={pin} isReadonly />
                             <PinPad onChange={handlePinChange}  />
                             <div className="flex gap-2">
                                 <Button size={ButtonSize.XL} variant={ButtonVariant.WHITE} onClick={resetInput}>

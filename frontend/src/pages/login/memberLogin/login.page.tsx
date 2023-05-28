@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {AuthContext} from "../../../contexts/auth/context";
+import {AuthContext} from "../../../utils/auth/context";
 import {userMock} from "../../../userMock";
 import {useNavigateToRegisterMember} from "../../../features/navigation/useNavigateTo";
 import {Button, ButtonSize, ButtonVariant, Section} from "../../../components";

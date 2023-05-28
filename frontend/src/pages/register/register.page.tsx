@@ -1,16 +1,14 @@
 import {Section} from "../../components";
 import {PageLayout} from "../../layouts/page.layout";
-import {MultiStepForm} from "../../components/multiStepForm/multiStepForm.component";
-import {REGISTER_FORM_STEPS} from "../../utils/constants";
+import {RegisterWizard} from "../../components/registerWizard/registerWizard.component";
 
-const Register = () => (
-    <PageLayout>
+const Register = () => {
+
+    return <PageLayout>
         <Section>
-            <MultiStepForm
-                steps={REGISTER_FORM_STEPS}
-            />
+            <RegisterWizard />
         </Section>
     </PageLayout>
-)
+}
 
 export default Register

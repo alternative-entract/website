@@ -1,9 +1,9 @@
-import {useForm} from 'react-hook-form';
+import {Controller, useForm} from 'react-hook-form';
+import {TextField} from "../../input";
 import {Form} from "../../form";
-import {ContactInfoFormData, RegisterFormData} from "../registerWizard.types";
+import {ContactInfoFormData, FORM_ERROR, FORM_PATTERN, RegisterFormData} from "../registerWizard.types";
 import {WizardStepperFooter} from "../../wizard";
 import {useWizard} from "../../../utils/wizard/useWizard";
-import {ControlledTextField} from "../../input/controlled/textField.component";
 
 export const ContactStep = () => {
     const { previousStep, nextStep, wizardData, isFirstStep, isLastStep } = useWizard<RegisterFormData>();
@@ -17,7 +17,7 @@ export const ContactStep = () => {
         return previousStep()
     }
 
-    const onSubmit = (data: ContactInfoFormData) => {
+    const saveData = (data: ContactInfoFormData) => {
         nextStep({contactInfo: data}, true)
     };
 
@@ -27,54 +27,74 @@ export const ContactStep = () => {
                 Informations de Contact
             </h1>
 
-            <Form onSubmit={handleSubmit(onSubmit)}>
-                <ControlledTextField
+            <Form onSubmit={handleSubmit(saveData)}>
+                <Controller
                     name="firstName"
-                    label="Prénom"
-                    placeholder="Jean"
+                    defaultValue=""
                     control={control}
                     rules={{
-                        required: "Veuillez renseigner le prénom du contact.",
+                        required: FORM_ERROR.EMPTY_ERROR,
                         pattern: {
-                            value: /^[a-zA-Z]+$/,
-                            message: "Veuillez entrer un prénom valide (lettres uniquement).",
+                            value: FORM_PATTERN.TEXT,
+                            message: FORM_ERROR.INVALID_FIRSTNAME_ERROR,
                         },
                     }}
+                    render={({field, formState}) =>
+                        <TextField
+                            label="Prénom"
+                            placeholder="Jean"
+                            error={formState.errors.firstName}
+                            {...field}
+                        />
+                    }
                 />
 
-                <ControlledTextField
+                <Controller
                     name="lastName"
-                    label="Nom"
-                    placeholder="Dupond"
+                    defaultValue=""
                     control={control}
                     rules={{
-                        required: "Veuillez renseigner le nom du contact.",
+                        required: FORM_ERROR.EMPTY_ERROR,
                         pattern: {
-                            value: /^[a-zA-Z]+$/,
-                            message: "Veuillez entrer un nom valide (lettres uniquement).",
+                            value: FORM_PATTERN.TEXT,
+                            message: FORM_ERROR.INVALID_LASTNAME_ERROR,
                         },
                     }}
+                    render={({field, formState}) =>
+                        <TextField
+                            label="Nom"
+                            placeholder="Dupond"
+                            error={formState.errors.lastName}
+                            {...field}
+                        />
+                    }
                 />
 
-                <ControlledTextField
+                <Controller
                     name="phoneNumber"
-                    label="N° de téléphone"
-                    placeholder="0612589645"
                     control={control}
+                    defaultValue=""
                     rules={{
-                        required: "Veuillez renseigner le numéro de téléphone du contact.",
+                        required: FORM_ERROR.EMPTY_ERROR,
                         pattern: {
-                            value: /^[0-9]{10}$/,
-                            message: "Veuillez entrer un numéro de téléphone valide.",
+                            value: FORM_PATTERN.PHONE_NUMBER,
+                            message: FORM_ERROR.INVALID_PHONE_NUMBER_ERROR,
                         }
                     }}
+                    render={({field, formState}) =>
+                        <TextField
+                            label="N° de téléphone"
+                            placeholder="0612589645"
+                            error={formState.errors.phoneNumber}
+                            {...field}
+                        />
+                    }
                 />
 
                 <WizardStepperFooter
                     isFirstStep={isFirstStep}
                     isLastStep={isLastStep}
                     onPreviousAction={handlePreviousAction}
-                    canClickNext
                 />
             </Form>
         </div>

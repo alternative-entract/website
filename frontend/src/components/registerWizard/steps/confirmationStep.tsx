@@ -2,8 +2,8 @@ import {FC} from "react";
 import {useWizard} from "../../../utils/wizard/useWizard";
 import {RegisterFormData} from "../registerWizard.types";
 import {useForm} from "react-hook-form";
-import {Form} from "../../form/form.component";
-import {WizardStepperFooter} from "../../wizard/wizardStepper.footer.component";
+import {Form} from "../../form";
+import {WizardStepperFooter} from "../../wizard";
 
 export const ConfirmationStep: FC = () => {
     const { previousStep, nextStep, wizardData, isFirstStep, isLastStep } = useWizard<RegisterFormData>();
@@ -29,7 +29,6 @@ export const ConfirmationStep: FC = () => {
                     isFirstStep={isFirstStep}
                     isLastStep={isLastStep}
                     onPreviousAction={handlePreviousAction}
-                    canClickNext
                 />
             </Form>
         </div>

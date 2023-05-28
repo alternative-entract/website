@@ -1,5 +1,5 @@
 import {WizardProvider} from "../../utils/wizard/provider";
-import {WizardStepperHeader} from "../wizard/wizardStepper.header.component";
+import {WizardStepperHeader} from "../wizard";
 import {useWizard} from "../../utils/wizard/useWizard";
 import {ContactStep} from "./steps/contactStep";
 import {SecurityStep} from "./steps/securityStep";
@@ -15,7 +15,6 @@ const REGISTER_FORM_STEPS: string[] = [
 
 export const RegisterWizard = () =>  {
     const { currentStepIndex } = useWizard();
-    // console.log(currentStepIndex)
     return (
         <WizardProvider
             header={

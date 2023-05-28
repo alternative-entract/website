@@ -1,16 +1,15 @@
-import {useForm} from 'react-hook-form';
+import {Controller, useForm} from 'react-hook-form';
 import {TextField} from "../../input";
-import {Form} from "../../form/form.component";
-import {AssociationInfoFormData, RegisterFormData} from "../registerWizard.types";
+import {Form} from "../../form";
+import {AssociationInfoFormData, FORM_ERROR, FORM_PATTERN, RegisterFormData} from "../registerWizard.types";
 import {useWizard} from "../../../utils/wizard/useWizard";
-import {WizardStepperFooter} from "../../wizard/wizardStepper.footer.component";
+import {WizardStepperFooter} from "../../wizard";
 
 export const AssociationInfoStep = () => {
     const { previousStep, nextStep, wizardData, isFirstStep, isLastStep } = useWizard<RegisterFormData>();
     const {
+        control,
         handleSubmit,
-        register,
-        formState: { errors, isValid },
     } = useForm({ defaultValues: wizardData.associationInfo, mode: "onSubmit" });
 
     const handlePreviousAction = () => {
@@ -27,32 +26,61 @@ export const AssociationInfoStep = () => {
                 Informations de l'association
             </h1>
             <Form onSubmit={handleSubmit(saveData)}>
-                <TextField
-                    label="Nom de l'association"
-                    placeholder="Petland"
-                    error={errors.name}
-                    {...register("name", {required: "Veuillez renseigner le nom de l'association."})}
+                <Controller
+                    name="name"
+                    defaultValue=""
+                    control={control}
+                    rules={{ required: FORM_ERROR.EMPTY_ERROR }}
+                    render={({field, formState}) =>
+                        <TextField
+                            label="Nom de l'association"
+                            placeholder="Petland"
+                            error={formState.errors.name}
+                            {...field}
+                        />
+                    }
                 />
 
-                <TextField /* InputAddress */
-                    label="Adresse"
-                    placeholder="1 rue des Champs Elysées"
-                    error={errors.location}
-                    {...register("location", {required: "Veuillez renseigner l'adresse de l'association."})}
+                <Controller
+                    name="location"
+                    defaultValue=""
+                    control={control}
+                    rules={{ required: FORM_ERROR.EMPTY_ERROR }}
+                    render={({field, formState}) =>
+                        <TextField
+                            label="Adresse"
+                            placeholder="1 rue des Champs Elysées"
+                            error={formState.errors.location}
+                            {...field}
+                        />
+                    }
                 />
 
-                <TextField /* InputPhone */
-                    label="N° de téléphone"
-                    placeholder="0112589645"
-                    error={errors.phone}
-                    {...register("phone", {required: "Veuillez renseigner le numéro de téléphone de l'association."})}
+                <Controller
+                    name="phone"
+                    defaultValue=""
+                    control={control}
+                    rules={{
+                        required: FORM_ERROR.EMPTY_ERROR,
+                        pattern: {
+                            value: FORM_PATTERN.PHONE_NUMBER,
+                            message: FORM_ERROR.INVALID_PHONE_NUMBER_ERROR,
+                        }
+                    }}
+                    render={({field, formState}) =>
+                        <TextField
+                            label="N° de téléphone"
+                            placeholder="0112589645"
+                            error={formState.errors.phone}
+                            {...field}
+                        />
+                    }
                 />
 
                 <WizardStepperFooter
                     isFirstStep={isFirstStep}
                     isLastStep={isLastStep}
                     onPreviousAction={handlePreviousAction}
-                    canClickNext={isValid}
                 />
             </Form>
         </div>

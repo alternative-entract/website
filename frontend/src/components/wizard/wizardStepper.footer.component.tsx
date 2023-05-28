@@ -5,14 +5,12 @@ interface IWizardStepperFooter {
     isFirstStep?: boolean
     isLastStep?: boolean
     onPreviousAction: () => void
-    canClickNext: boolean
 }
 
 export const WizardStepperFooter: FC<IWizardStepperFooter> = ({
     isFirstStep,
     isLastStep,
     onPreviousAction,
-    canClickNext
 }) => {
     let previousButtonLabel = isFirstStep ? "Retourner à l'accueil" : "Etape précédente"
     let nextButtonLabel = isLastStep ? "Confirmer" : "Etape suivante"
@@ -35,7 +33,6 @@ export const WizardStepperFooter: FC<IWizardStepperFooter> = ({
                 type="submit"
                 variant={ButtonVariant.BLUE}
                 size={ButtonSize.XL}
-                disabled={!canClickNext}
             >
                 {nextButtonLabel}
             </Button>

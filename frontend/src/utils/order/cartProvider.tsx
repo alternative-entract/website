@@ -1,5 +1,5 @@
 import {createContext, FC, ReactElement, useContext, useState} from "react";
-import {Product} from "../types/product";
+import {Product} from "../../types/product";
 import toast from "react-hot-toast";
 
 interface ICartProvider {

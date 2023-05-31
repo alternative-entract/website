@@ -8,7 +8,6 @@ describe("Navbar", () => {
             src: "logo.png",
             alt: "Logo",
         },
-        title: "My App",
         items: [
             { label: "Home", onClick: jest.fn() },
             { label: "About", onClick: jest.fn() },
@@ -19,7 +18,7 @@ describe("Navbar", () => {
     }
 
     it("renders the logo, title, and menu items", () => {
-        const { logo, items, title} = navbarProps
+        const { logo, items} = navbarProps
 
         const { getByAltText, getByText } = render(
             <Navbar {...navbarProps} />
@@ -28,9 +27,6 @@ describe("Navbar", () => {
         const logoElement = getByAltText(logo.alt);
         expect(logoElement).toBeInTheDocument();
         expect(logoElement).toHaveAttribute("src", logo.src);
-
-        const titleElement = getByText(title);
-        expect(titleElement).toBeInTheDocument();
 
         items.forEach((item) => {
             const menuItem = getByText(item.label);
@@ -87,25 +83,5 @@ describe("Navbar", () => {
 
         const burgerMenuPanel = getByTestId("mobile-menu-navbar-items");
         expect(burgerMenuPanel).toHaveClass("hidden");
-    });
-
-    it("renders correctly with empty or null title", () => {
-        const { getByAltText, queryByText } = render(
-            <Navbar
-                logo={navbarProps.logo}
-                title=""
-                items={navbarProps.items}
-                isMobileMenuOpen={false}
-                toggleMobileMenu={jest.fn()}
-            />
-        );
-
-        const logoElement = getByAltText(navbarProps.logo.alt);
-        expect(logoElement).toBeInTheDocument();
-
-        navbarProps.items.forEach((item) => {
-            const menuItem = queryByText(item.label);
-            expect(menuItem).toBeInTheDocument();
-        });
     });
 });

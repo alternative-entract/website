@@ -1,6 +1,6 @@
 import {Outlet, ReactLocation, Router} from "react-location";
 import {routes} from "../routes";
-import {AuthProvider} from "../utils/auth/provider";
+import {AuthProvider} from "../utils/contexts/auth/provider";
 
 const location = new ReactLocation();
 

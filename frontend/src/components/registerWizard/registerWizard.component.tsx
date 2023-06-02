@@ -1,10 +1,11 @@
-import {WizardProvider} from "../../utils/wizard/provider";
+import {WizardProvider} from "../../utils/contexts/wizard/provider";
 import {WizardStepperHeader} from "../wizard";
-import {useWizard} from "../../utils/wizard/useWizard";
+import {useWizard} from "../../utils/contexts/wizard/useWizard";
 import {ContactStep} from "./steps/contactStep";
 import {SecurityStep} from "./steps/securityStep";
 import {AssociationInfoStep} from "./steps/associationInfoStep";
 import {ConfirmationStep} from "./steps/confirmationStep";
+import {t} from "../../utils/i18n/i18n";
 
 const REGISTER_FORM_STEPS: string[] = [
     "Association",
@@ -23,13 +24,13 @@ export const RegisterWizard = () =>  {
                     currentStepIndex={currentStepIndex}
                 />
             }
-            onFinish={() => console.log("envoyer un mail")}
+            onFinish={(wizardData) => console.log(t("registration.sendEmail"), wizardData)}
         >
             <AssociationInfoStep/>
             <ContactStep/>
             <SecurityStep/>
             <ConfirmationStep/>
-            <>Cliquez sur le lien que nous vous avons envoyé par mail.</>
+            <>{t("registration.postRegistrationInstruction")}</>
         </WizardProvider>
     )
 }

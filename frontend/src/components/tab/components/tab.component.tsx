@@ -1,6 +1,6 @@
 import {FC, useMemo} from "react";
 import {TabData} from "../tabs.types";
-import {capitalizeFirstLetter} from "../../../utils/capitalizeFirstLetter";
+import {capitalizeFirstLetter} from "../../../utils/helpers/capitalizeFirstLetter";
 
 interface ITab {
     tab: TabData

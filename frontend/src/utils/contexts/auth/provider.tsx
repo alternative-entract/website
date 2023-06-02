@@ -1,8 +1,8 @@
 import {FC, ReactNode, useEffect, useReducer, useState} from 'react';
 import { AuthContext } from "./context";
 import {AuthActionType, authReducer} from "./reducer";
-import {userMock} from "../../userMock";
-import {useNavigateToApp} from "../../features/navigation/useNavigateTo";
+import {userMock} from "../../../userMock";
+import {useNavigateToApp} from "../../../features/navigation/useNavigateTo";
 
 type AuthProviderProps = {
     children: ReactNode;

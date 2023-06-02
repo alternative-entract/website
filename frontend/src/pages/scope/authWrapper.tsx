@@ -1,5 +1,6 @@
 import {Navigate, Outlet} from "react-location";
 import {useAuth} from "../../features/auth/useAuth";
+import {t} from "../../utils/i18n/i18n";
 
 export const AuthWrapper = () => {
     const { isAuthenticated, isLoading } = useAuth();
@@ -12,5 +13,5 @@ export const AuthWrapper = () => {
         return <Navigate to="/home" />;
     }
 
-    return <div>Loading...</div>;
+    return <div>{t("common.loading")}</div>;
 }

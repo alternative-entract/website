@@ -1,25 +1,45 @@
-export type ContactInfoFormData = {
+import {getObjectKeys} from "../../utils/helpers/getObjectKeys";
+
+export type ContactFormData = {
     firstName: string
     lastName: string
     phoneNumber: string
 }
 
-export type SecurityInfoFormData = {
+export const CONTACT_FORM_KEYS = getObjectKeys<ContactFormData>({
+    firstName: "firstName",
+    lastName: "lastName",
+    phoneNumber: "phoneNumber"
+})
+
+export type SecurityFormData = {
     email: string
     password: string
     confirmPassword: string
 }
 
-export type AssociationInfoFormData = {
+export const SECURITY_FORM_KEYS = getObjectKeys<SecurityFormData>({
+    email: "email",
+    password: "password",
+    confirmPassword: "confirmPassword"
+})
+
+export type AssociationFormData = {
     name: string
     location: string
     phone: string
 }
 
+export const ASSOCIATION_FORM_KEYS = getObjectKeys<AssociationFormData>({
+    name: "name",
+    location: "location",
+    phone: "phone",
+})
+
 export type RegisterFormData = Partial<{
-    contactInfo?: ContactInfoFormData;
-    securityInfo?: SecurityInfoFormData;
-    associationInfo?: AssociationInfoFormData;
+    contactInfo?: ContactFormData;
+    securityInfo?: SecurityFormData;
+    associationInfo?: AssociationFormData;
 }>
 
 export const FORM_PATTERN = {

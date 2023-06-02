@@ -1,6 +1,6 @@
 import {FC, ReactNode, useContext, useState} from "react";
 import {Footer, Navbar, NavbarItemData} from "../components";
-import {AuthContext} from "../utils/auth/context";
+import {AuthContext} from "../utils/contexts/auth/context";
 import {useNavigateToProduct, useNavigateToProfile} from "../features/navigation/useNavigateTo";
 
 interface PageLayoutProps {

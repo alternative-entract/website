@@ -1,14 +1,15 @@
 import {FC} from "react";
-import {useWizard} from "../../../utils/wizard/useWizard";
+import {useWizard} from "../../../utils/contexts/wizard/useWizard";
 import {
-    AssociationInfoFormData,
-    ContactInfoFormData,
+    AssociationFormData,
+    ContactFormData,
     RegisterFormData,
-    SecurityInfoFormData
+    SecurityFormData
 } from "../registerWizard.types";
 import {WizardStepperFooter} from "../../wizard";
 import {Form} from "../../form";
 import {useForm} from "react-hook-form";
+import {t} from "../../../utils/i18n/i18n";
 
 export const ConfirmationStep: FC = () => {
     const { previousStep, nextStep, wizardData, isFirstStep, isLastStep } = useWizard<RegisterFormData>();
@@ -18,11 +19,11 @@ export const ConfirmationStep: FC = () => {
         return previousStep()
     }
 
-    const saveData = (data: AssociationInfoFormData) => {
+    const saveData = (data: AssociationFormData) => {
         return nextStep({associationInfo: data}, true)
     };
 
-    const renderSection = (sectionName: string, sectionData: ContactInfoFormData | SecurityInfoFormData | AssociationInfoFormData) => {
+    const renderSection = (sectionName: string, sectionData: ContactFormData | SecurityFormData | AssociationFormData) => {
         return (
             <div key={sectionName} className="my-4">
                 <h3 className="text-lg font-medium">{sectionName}</h3>
@@ -40,7 +41,7 @@ export const ConfirmationStep: FC = () => {
     return (
         <div className="flex flex-col w-full items-center gap-16">
             <h1 className="text-lg font-medium leading-none text-gray-900">
-                Confirmation du formulaire d'inscription
+                {t("registration.confirmation.title")}
             </h1>
 
             <div>

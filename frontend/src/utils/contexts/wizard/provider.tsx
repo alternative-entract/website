@@ -1,7 +1,7 @@
 import {useCallback, useEffect, useMemo, useState} from "react";
 import {WizardContextType, WizardProps} from "./types";
 import {WizardContext} from "./context";
-import {useNavigateToHome} from "../../features/navigation/useNavigateTo";
+import {useNavigateToHome} from "../../../features/navigation/useNavigateTo";
 
 export const WizardProvider = ({
    children,

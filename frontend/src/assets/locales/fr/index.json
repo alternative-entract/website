@@ -1,0 +1,114 @@
+{
+  "login": {
+    "admin": {
+      "title": "Connexion à l'espace administrateur"
+    },
+    "member": {
+      "title": "Connexion à l'espace adhérent",
+      "email": "Adresse email",
+      "emailPlaceholder": "name@company.com",
+      "password": "Mot de passe",
+      "forgotPassword": "J'ai oublié mon mot de passe ?"
+    },
+    "actions" : {
+      "clean": "Effacer",
+      "connect": "Se connecter",
+      "register": "Créer un compte"
+    }
+  },
+  "registration": {
+    "association": {
+      "title": "Identité de l'association",
+      "nameField": {
+        "label": "Nom de l'association",
+        "placeholder": "Petland"
+      },
+      "locationField": {
+        "label": "Adresse",
+        "placeholder": "1 rue des Champs Elysées"
+      },
+      "phoneField": {
+        "label": "N° de téléphone",
+        "placeholder": "0112589645"
+      }
+    },
+    "contact": {
+      "title": "Coordonnées de Contact",
+      "firstNameField": {
+        "label": "Prénom",
+        "placeholder": "Jean"
+      },
+      "lastNameField": {
+        "label": "Nom",
+        "placeholder": "Dupond"
+      },
+      "phoneNumberField": {
+        "label": "N° de téléphone",
+        "placeholder": "0612589645"
+      }
+    },
+    "security": {
+      "title": "Identifiants de connexion",
+      "emailField": {
+        "label": "Adresse e-mail",
+        "placeholder": "jean.dupond@gmail.com"
+      },
+      "passwordField": {
+        "label": "Mot de passe",
+        "rules": {
+          "minLength": "Le mot de passe doit contenir au moins {{ number }} caractères.",
+          "maxLength": "Le mot de passe ne doit pas dépasser {{ number }} caractères.",
+          "atLeast": "Doit contenir au moins 1 {{ string }}."
+        }
+      },
+      "confirmPasswordField": {
+        "label": "Confirmation du mot de passe",
+        "rules": {
+          "mismatch": "Les deux mots de passe ne sont pas identiques."
+        }
+      }
+    },
+    "confirmation": {
+      "title": "Confirmation du formulaire d'inscription"
+    },
+    "sendEmail": "envoyer un mail",
+    "postRegistrationInstruction": "Cliquez sur le lien que nous vous avons envoyé par mail."
+  },
+  "wizard": {
+    "actions": {
+      "previousStep": "Etape précédente",
+      "nextStep": "Etape suivante",
+      "confirm": "Confirmer",
+      "returnToHome": "Retourner à l'accueil"
+    }
+  },
+  "common": {
+    "or": "OU",
+    "loading": "Loading..."
+  },
+  "error": {
+    "notfoundPage": "404, Not found page"
+  },
+  "productDetail": {
+    "title": "Détails du produit"
+  },
+  "products": {
+    "title": "Catalogue produits",
+    "emptyList": "Il n'y a pas de produits !",
+    "fetchError": "An error occurred..."
+  },
+  "profile": {
+    "title": "Profil"
+  },
+  "home": {
+    "mainTitle": "Bienvenue sur le site Internet de notre association ApproAlternative Entr'Act",
+    "subTitle": "Plateforme logistique d'aide humanitaire et solidaire",
+    "memberLabel": "Espace Adhérent de l'association",
+    "adminLabel": "Espace Administrateur / Bénévole",
+    "notYetMember": "Pas encore adhérent ?",
+    "register": "Rejoignez-nous."
+  },
+  "cart": {
+    "title": "Panier"
+  }
+}

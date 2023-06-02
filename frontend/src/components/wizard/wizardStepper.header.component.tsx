@@ -1,6 +1,6 @@
 import {FC, Fragment} from "react";
 import {CheckIcon} from "../icon";
-import {useWizard} from "../../utils/wizard/useWizard";
+import {useWizard} from "../../utils/contexts/wizard/useWizard";
 
 interface IWizardStepperHeader {
     stepNames: string[]

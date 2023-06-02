@@ -3,7 +3,8 @@ import {PageLayout} from "../../layouts/page.layout";
 import {useProducts} from "../../features/products/useProducts";
 import {useCallback, useEffect, useState} from "react";
 import {Product} from "../../types/product";
-import {CategoryTabs} from "../../components/categoryTabs/categoryTabs.component";
+import {CategoryTabs} from "../../components";
+import {t} from "../../utils/i18n/i18n";
 
 const Products = () => {
     const { isLoading, isError, products } = useProducts();
@@ -30,21 +31,21 @@ const Products = () => {
     }, [products]);
 
     if (isLoading) {
-        return <span>Loading...</span>;
+        return <span>{t("common.loading")}</span>;
     }
 
     if (isError) {
-        return <span>An error occurred...</span>;
+        return <span>{t("products.fetchError")}</span>;
     }
 
     if (!products.length) {
-        return <span>No products !)</span>;
+        return <span>{t("products.emptyList")}</span>;
     }
 
     return (
         <PageLayout>
             <Section>
-                <Breadcrumb items={[{ title: 'Catalogue produits' }]} />
+                <Breadcrumb items={[{ title: t("products.title") }]} />
                 <CategoryTabs categories={categoriesOptions} onCategoryTabChange={handleCategoryChange} />
                 {filteredProducts.map(product => product.name)}
             </Section>

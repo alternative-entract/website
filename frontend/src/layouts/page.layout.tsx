@@ -42,10 +42,10 @@ export const PageLayout: FC<PageLayoutProps> = ({ children}) => {
                         toggleMobileMenu={toggleMobileMenu}
                     />
                 </header>
-                <main className="flex mt-32">
+                <main className="flex mt-32 flex-grow">
                     {children}
                 </main>
-                <footer className="overflow-hidden mt-16 md:mt-0">
+                <footer className="overflow-hidden">
                     <Footer>
                         <div className="sm:flex sm:items-center sm:justify-between">
                             <div className="flex items-center mb-4 sm:mb-0">

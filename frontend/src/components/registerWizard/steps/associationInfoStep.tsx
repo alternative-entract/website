@@ -17,13 +17,13 @@ export const AssociationInfoStep = () => {
     }
 
     const saveData = (data: AssociationInfoFormData) => {
-        return nextStep(data, true)
+        return nextStep({associationInfo: data}, true)
     };
 
     return (
         <div className="flex flex-col w-full items-center gap-16">
             <h1 className="text-lg font-medium leading-none text-gray-900">
-                Informations de l'association
+                Identité de l'association
             </h1>
             <Form onSubmit={handleSubmit(saveData)}>
                 <Controller

@@ -7,9 +7,9 @@ import {AssociationInfoStep} from "./steps/associationInfoStep";
 import {ConfirmationStep} from "./steps/confirmationStep";
 
 const REGISTER_FORM_STEPS: string[] = [
-    "Contact",
-    "Sécurité",
     "Association",
+    "Contact",
+    "Connexion",
     "Confirmation"
 ]
 
@@ -23,12 +23,13 @@ export const RegisterWizard = () =>  {
                     currentStepIndex={currentStepIndex}
                 />
             }
-            onFinish={() => console.log()}
+            onFinish={() => console.log("envoyer un mail")}
         >
+            <AssociationInfoStep/>
             <ContactStep/>
             <SecurityStep/>
-            <AssociationInfoStep/>
             <ConfirmationStep/>
+            <>Cliquez sur le lien que nous vous avons envoyé par mail.</>
         </WizardProvider>
     )
 }

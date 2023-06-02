@@ -24,7 +24,7 @@ export const ContactStep = () => {
     return (
         <div className="flex flex-col w-full items-center gap-16">
             <h1 className="text-lg font-medium leading-none text-gray-900">
-                Informations de Contact
+                Coordonnées de Contact
             </h1>
 
             <Form onSubmit={handleSubmit(saveData)}>

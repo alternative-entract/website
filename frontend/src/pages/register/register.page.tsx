@@ -1,6 +1,6 @@
 import {Section} from "../../components";
 import {PageLayout} from "../../layouts/page.layout";
-import {RegisterWizard} from "../../components/registerWizard/registerWizard.component";
+import {RegisterWizard} from "../../components";
 
 const Register = () => {
 

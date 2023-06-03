@@ -1,6 +1,6 @@
 import {FC, Fragment} from "react";
 import {CheckIcon} from "../icon";
-import {useWizard} from "../../utils/wizard/useWizard";
+import {useWizard} from "../../utils/contexts/wizard/useWizard";
 
 interface IWizardStepperHeader {
     stepNames: string[]
@@ -8,8 +8,9 @@ interface IWizardStepperHeader {
 }
 
 interface IWizardStepIndicator {
-    id: number
+    stepId: number
     step: StepData
+    onStepClicked: (targetStepIndex: number) => void
 }
 
 export type StepData = {
@@ -18,15 +19,25 @@ export type StepData = {
     isCurrent?: boolean
 }
 
-const WizardStepIndicator: FC<IWizardStepIndicator> = ({ id, step }) => {
+const WizardStepIndicator: FC<IWizardStepIndicator> = ({ stepId, step, onStepClicked = () => [] }) => {
     const { isAchieved, isCurrent, name } = step
     const achievedClass = isAchieved ? "text-green-700" : "text-gray-300"
     const currentClass = isCurrent ? "text-gray-800" : ""
+    const clickableClass = isAchieved ? "cursor-pointer" : ""
+
+    const handleStepClick = () => {
+        if (isAchieved) {
+            onStepClicked(stepId - 1)
+        }
+    }
 
     return (
-        <li className={`flex items-center md:mx-4 ${achievedClass} ${currentClass}`}>
-            <span className="flex items-center ">
-            {isAchieved ? <CheckIcon /> : <span className="mr-2">{id}.</span>}
+        <li className={`flex items-center md:mx-4 ${achievedClass} ${currentClass} ${clickableClass}`} onClick={handleStepClick}>
+            <span className="flex items-center">
+                {isAchieved
+                    ? <CheckIcon />
+                    : <span className="mr-2">{stepId}.</span>
+                }
                 {name}
             </span>
         </li>
@@ -34,7 +45,7 @@ const WizardStepIndicator: FC<IWizardStepIndicator> = ({ id, step }) => {
 }
 
 export const WizardStepperHeader: FC<IWizardStepperHeader> = ({ stepNames}) => {
-    const { currentStepIndex } = useWizard()
+    const { currentStepIndex, goToStep } = useWizard()
     const updatedSteps = stepNames.map((name, index) => {
         const isAchieved = index < currentStepIndex;
         const isCurrent = index === currentStepIndex;
@@ -45,7 +56,11 @@ export const WizardStepperHeader: FC<IWizardStepperHeader> = ({ stepNames}) => {
         <ol className="flex w-full justify-center items-center text-sm font-medium sm:text-base md:text-xl">
             {updatedSteps.map((step, index) => (
                 <Fragment key={`step-${step.name}-${index}`}>
-                    <WizardStepIndicator id={index + 1} step={step} />
+                    <WizardStepIndicator
+                        stepId={index + 1}
+                        step={step}
+                        onStepClicked={goToStep}
+                    />
                     {index !== updatedSteps.length - 1 && <li className="w-full flex justify-center items-center border-b border-gray-300" />}
                 </Fragment>
             ))}

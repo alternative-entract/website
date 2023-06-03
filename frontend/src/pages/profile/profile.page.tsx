@@ -1,10 +1,11 @@
 import {Section} from "../../components";
 import {PageLayout} from "../../layouts/page.layout";
+import {t} from "../../utils/i18n/i18n";
 
 const Profile = () => {
     return (
         <PageLayout>
-            <Section>Profile</Section>
+            <Section>{t("profile.title")}</Section>
         </PageLayout>
     )
 }

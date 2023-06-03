@@ -1,4 +1,4 @@
-import {createContext, FC, ReactElement, useContext, useState} from "react";
+import {createContext, FC, ReactElement, useState} from "react";
 import {Product} from "../../../types/product";
 import toast from "react-hot-toast";
 
@@ -29,7 +29,7 @@ export interface ICartContext {
     setTotalProductsQuantities: (price: number) => void
 }
 
-const CartContext = createContext<ICartContext>({
+export const CartContext = createContext<ICartContext>({
     cartProducts: [],
     showCart: false,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -131,4 +131,3 @@ export const CartProvider: FC<ICartProvider> = ({ children }) => {
     )
 }
 
-export const useCartContext = () => useContext(CartContext);

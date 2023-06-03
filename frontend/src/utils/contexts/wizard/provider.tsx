@@ -24,7 +24,7 @@ export const WizardProvider = ({
             navigateToHome()
         }
         setCurrentStep((previousValue) => previousValue - 1);
-    }, [isFirstStep]);
+    }, [isFirstStep, navigateToHome]);
 
     const nextStep = useCallback(
         (newData: Record<string, unknown>, merge = true) => {

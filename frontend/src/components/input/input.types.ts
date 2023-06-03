@@ -10,10 +10,10 @@ export interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
     [key: string]: unknown;
 }
 
-export interface EmailFieldProps extends InputFieldProps {}
+export type EmailFieldProps = InputFieldProps
 
-export interface TextFieldProps extends InputFieldProps {}
+export type TextFieldProps = InputFieldProps
 
-export interface PasswordFieldProps extends InputFieldProps {}
+export type PasswordFieldProps = InputFieldProps
 
-export interface NumberFieldProps extends InputFieldProps {}
+export type NumberFieldProps = InputFieldProps

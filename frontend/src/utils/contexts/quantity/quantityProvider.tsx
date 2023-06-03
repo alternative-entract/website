@@ -1,4 +1,4 @@
-import {createContext, FC, ReactElement, useContext, useState} from "react";
+import {createContext, FC, ReactElement, useState} from "react";
 
 interface IQuantityProviderProps {
     children: ReactElement
@@ -10,9 +10,11 @@ export interface IQuantityContext {
     decrementQuantity: () => void
 }
 
-const QuantityContext = createContext<IQuantityContext>({
+export const QuantityContext = createContext<IQuantityContext>({
     quantity: 1,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     incrementQuantity: () => {},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     decrementQuantity: () => {}
 })
 
@@ -37,5 +39,3 @@ export const QuantityProvider: FC<IQuantityProviderProps> = ({ children }) => {
         </QuantityContext.Provider>
     )
 }
-
-export const useQuantityContext = () => useContext(QuantityContext);

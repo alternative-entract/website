@@ -3,7 +3,7 @@ import {TextField} from "../../input";
 import {Form} from "../../form";
 import {
 	ASSOCIATION_FORM_KEYS,
-	AssociationFormData,
+	AssociationInfo,
 	FORM_PATTERN, RegisterFormData
 } from "../registrationWizard.types";
 import {useWizard} from "../../../utils/contexts/wizard/useWizard";
@@ -15,11 +15,11 @@ export const AssociationInfoStep = () => {
     const {
         control,
         handleSubmit,
-    } = useForm({ defaultValues: wizardData.associationInfo as AssociationFormData, mode: "onSubmit" });
+    } = useForm({ defaultValues: wizardData.associationInfo as AssociationInfo, mode: "onSubmit" });
 
     const handlePreviousAction = () => previousStep()
 
-    const saveData = (data: AssociationFormData) =>
+    const saveData = (data: AssociationInfo) =>
         nextStep({associationInfo: data}, true)
 
     return (

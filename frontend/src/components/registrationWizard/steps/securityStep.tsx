@@ -6,7 +6,7 @@ import {Form} from "../../form";
 import {
 	FORM_PATTERN, RegisterFormData,
 	SECURITY_FORM_KEYS,
-	SecurityFormData
+	SecurityInfo
 } from "../registrationWizard.types";
 import {useWizard} from "../../../utils/contexts/wizard/useWizard";
 import {WizardStepperFooter} from "../../wizard";
@@ -16,12 +16,12 @@ import {InputHint} from "../../input/inputHint.component";
 
 export const SecurityStep = () => {
 	const {previousStep, nextStep, wizardData, isFirstStep, isLastStep} = useWizard<RegisterFormData>();
-	const {control, handleSubmit,} = useForm({defaultValues: wizardData.securityInfo as SecurityFormData, mode: "onSubmit"});
+	const {control, handleSubmit,} = useForm({defaultValues: wizardData.securityInfo as SecurityInfo, mode: "onSubmit"});
 	const [showPassword, setShowPassword] = useState(false)
 
 	const handlePreviousAction = () => previousStep()
 
-	const saveData = (data: SecurityFormData) =>
+	const saveData = (data: SecurityInfo) =>
 		nextStep({securityInfo: data}, true)
 
 	const renderPasswordHint = () => {

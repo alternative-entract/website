@@ -3,7 +3,7 @@ import {TextField} from "../../input";
 import {Form} from "../../form";
 import {
 	CONTACT_FORM_KEYS,
-	ContactFormData,
+	ContactInfo,
 	FORM_PATTERN, RegisterFormData
 } from "../registrationWizard.types";
 import {WizardStepperFooter} from "../../wizard";
@@ -16,11 +16,11 @@ export const ContactStep = () => {
     const {
         control,
         handleSubmit,
-    } = useForm({ defaultValues: wizardData.contactInfo as ContactFormData, mode: "onSubmit" });
+    } = useForm({ defaultValues: wizardData.contactInfo as ContactInfo, mode: "onSubmit" });
 
     const handlePreviousAction = () => previousStep()
 
-    const saveData = (data: ContactFormData) =>
+    const saveData = (data: ContactInfo) =>
         nextStep({contactInfo: data}, true)
 
     return (

@@ -1,4 +1,3 @@
-import {getObjectKeys} from "../../utils/helpers/getObjectKeys";
 import {t} from "../../utils/i18n/i18n";
 
 export const REGISTER_FORM_STEPS: string[] = [
@@ -8,55 +7,53 @@ export const REGISTER_FORM_STEPS: string[] = [
 	t("registration.confirmation.stepName")
 ]
 
-export type SectionType = {
-	[key: string]: string;
-};
+export type SectionType = Record<string, string>
 
-export type ContactFormData = SectionType | {
+export type ContactInfo = SectionType | {
     firstName: string
     lastName: string
     phoneNumber: string
 }
 
-export type SecurityFormData = SectionType | {
+export type SecurityInfo = SectionType | {
     email: string
     password: string
 }
 
-export type AssociationFormData = SectionType | {
+export type AssociationInfo = SectionType | {
     brand: string
     location: string
     phoneNumber: string
 }
 
 export type RegisterFormData = {
-	contactInfo?: ContactFormData;
-	securityInfo?: SecurityFormData;
-	associationInfo?: AssociationFormData;
+	contactInfo?: ContactInfo;
+	securityInfo?: SecurityInfo;
+	associationInfo?: AssociationInfo;
 };
 
-export const SECURITY_FORM_KEYS = getObjectKeys<SecurityFormData>({
+export const SECURITY_FORM_KEYS: Record<keyof SecurityInfo, string> = {
 	email: "email",
 	password: "password",
-})
+}
 
-export const CONTACT_FORM_KEYS = getObjectKeys<ContactFormData>({
+export const CONTACT_FORM_KEYS: Record<keyof ContactInfo, string> = {
 	firstName: "firstName",
 	lastName: "lastName",
 	phoneNumber: "phoneNumber"
-})
+}
 
-export const ASSOCIATION_FORM_KEYS = getObjectKeys<AssociationFormData>({
-    brand: "name",
+export const ASSOCIATION_FORM_KEYS: Record<keyof AssociationInfo, string> = {
+    brand: "brand",
     location: "location",
 		phoneNumber: "phoneNumber"
-})
+}
 
-export const REGISTER_FORM_SECTION_LABEL: Record<keyof RegisterFormData, Record<string, string>> = {
+export const REGISTER_FORM_SECTION_LABEL: Record<keyof RegisterFormData, SectionType> = {
 	associationInfo: {
 		brand: t("registration.associationInfo.brand.label"),
 		location: t("registration.associationInfo.location.label"),
-		phoneNumber: t("registration.associationInfo.phoneNumber.label")
+		phoneNumber: t("registration.associationInfo.phoneNumber.label"),
 	},
 	contactInfo: {
 		firstName: t("registration.contactInfo.firstName.label"),

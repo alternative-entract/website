@@ -1,11 +1,11 @@
 import {FC} from "react";
 import {useWizard} from "../../../utils/contexts/wizard/useWizard";
 import {
-	AssociationFormData,
-	ContactFormData,
+	AssociationInfo,
+	ContactInfo,
 	REGISTER_FORM_SECTION_LABEL, REGISTER_FORM_STEPS,
 	RegisterFormData,
-	SecurityFormData
+	SecurityInfo
 } from "../registrationWizard.types";
 import {WizardStepperFooter} from "../../wizard";
 import {Form} from "../../form";
@@ -21,7 +21,7 @@ export const ConfirmationStep: FC = () => {
 
     const saveData = (data: RegisterFormData) => nextStep(data, true)
 
-		const renderSection = (sectionName: keyof RegisterFormData, sectionData: ContactFormData | SecurityFormData | AssociationFormData) => {
+		const renderSection = (sectionName: keyof RegisterFormData, sectionData: ContactInfo | SecurityInfo | AssociationInfo) => {
 				const handleUpdate = () => {
 					const sectionStepName = t(`registration.${sectionName}.stepName`)
 					const stepToGo = REGISTER_FORM_STEPS.findIndex(step => step === sectionStepName)

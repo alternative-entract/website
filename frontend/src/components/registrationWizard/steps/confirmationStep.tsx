@@ -34,7 +34,10 @@ export const ConfirmationStep: FC = () => {
 								<ul>
 									{Object.entries(sectionData).map(([fieldName, fieldValue]) => (
 										<li key={fieldName}>
-											<strong>{REGISTER_FORM_SECTION_LABEL[sectionName][fieldName]}:</strong> <>{fieldValue}</>
+											{fieldName === "password"
+												? <><strong>{REGISTER_FORM_SECTION_LABEL[sectionName][fieldName]}:</strong> <>{t("registration.securityInfo.password.masked")}</> </>
+												: <><strong>{REGISTER_FORM_SECTION_LABEL[sectionName][fieldName]}:</strong> <>{fieldValue}</></>
+											}
 										</li>
 									))}
 								</ul>

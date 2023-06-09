@@ -64,6 +64,7 @@
             "lowercase": "Doit contenir au moins 1 minuscule",
             "number": "Doit contenir au moins 1 chiffre"
         },
+        "masked": "masqué",
         "rules": {
           "minLength": "Le mot de passe doit contenir au moins {{ number }} caractères.",
           "maxLength": "Le mot de passe ne doit pas dépasser {{ number }} caractères.",

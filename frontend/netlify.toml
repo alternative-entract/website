@@ -1,0 +1,10 @@
+[build]
+ignore = "git diff --quiet HEAD^ HEAD ./"
+
+[build.environment]
+NETLIFY_USE_YARN = "true"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

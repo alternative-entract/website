@@ -4,7 +4,6 @@ import {useWizard} from "../../utils/contexts/wizard/useWizard";
 
 interface IWizardStepperHeader {
     stepNames: string[]
-    currentStepIndex: number
 }
 
 interface IWizardStepIndicator {

@@ -17,7 +17,7 @@ export const WizardProvider = ({
         [children]
     );
     const isFirstStep = currentStep === 0;
-    const isLastStep = currentStep === stepsCount - 1;
+    const isLastStep = currentStep + 1 === stepsCount - 1;
 
     const previousStep = useCallback(() => {
         if (isFirstStep) {
@@ -48,7 +48,7 @@ export const WizardProvider = ({
     );
 
     useEffect(() => {
-        if (currentStep === stepsCount) {
+        if (currentStep + 1 === stepsCount) {
             onFinish(wizardData);
         }
     }, [currentStep, stepsCount, wizardData, onFinish]);
@@ -78,8 +78,10 @@ export const WizardProvider = ({
         <WizardContext.Provider value={contextValue}>
             <div className="flex flex-col gap-16 mx-8">
                 {header}
-                <div>
-                    {children[currentStep]}
+                <div className="flex justify-center">
+									<div className="md:w-1/2">
+										{children[currentStep]}
+									</div>
                 </div>
             </div>
         </WizardContext.Provider>

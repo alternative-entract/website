@@ -17,62 +17,77 @@
     }
   },
   "registration": {
-    "association": {
+    "associationInfo": {
+      "stepName": "Association",
       "title": "Identité de l'association",
-      "nameField": {
+      "brand": {
         "label": "Nom de l'association",
         "placeholder": "Petland"
       },
-      "locationField": {
+      "location": {
         "label": "Adresse",
         "placeholder": "1 rue des Champs Elysées"
       },
-      "phoneField": {
+      "phoneNumber": {
         "label": "N° de téléphone",
         "placeholder": "0112589645"
       }
     },
-    "contact": {
+    "contactInfo": {
+      "stepName": "Contact",
       "title": "Coordonnées de Contact",
-      "firstNameField": {
+      "firstName": {
         "label": "Prénom",
         "placeholder": "Jean"
       },
-      "lastNameField": {
+      "lastName": {
         "label": "Nom",
         "placeholder": "Dupond"
       },
-      "phoneNumberField": {
+      "phoneNumber": {
         "label": "N° de téléphone",
         "placeholder": "0612589645"
       }
     },
-    "security": {
+    "securityInfo": {
+      "stepName": "Identification",
       "title": "Identifiants de connexion",
-      "emailField": {
+      "email": {
         "label": "Adresse e-mail",
         "placeholder": "jean.dupond@gmail.com"
       },
-      "passwordField": {
+      "password": {
         "label": "Mot de passe",
+        "hints": {
+            "length": "Doit contenir entre 8 et 20 caractères",
+            "uppercase": "Doit contenir au moins 1 majuscule",
+            "lowercase": "Doit contenir au moins 1 minuscule",
+            "number": "Doit contenir au moins 1 chiffre"
+        },
         "rules": {
           "minLength": "Le mot de passe doit contenir au moins {{ number }} caractères.",
           "maxLength": "Le mot de passe ne doit pas dépasser {{ number }} caractères.",
           "atLeast": "Doit contenir au moins 1 {{ string }}."
         }
-      },
-      "confirmPasswordField": {
-        "label": "Confirmation du mot de passe",
-        "rules": {
-          "mismatch": "Les deux mots de passe ne sont pas identiques."
-        }
       }
     },
     "confirmation": {
+      "stepName": "Confirmation",
       "title": "Confirmation du formulaire d'inscription"
     },
-    "sendEmail": "envoyer un mail",
-    "postRegistrationInstruction": "Cliquez sur le lien que nous vous avons envoyé par mail."
+    "updateSection": "Modifier la section",
+    "sendEmail": "Envoyer un mail",
+    "postRegistrationInstruction": "Pour finaliser votre demande d'inscription, cliquez sur le lien que nous vous avons envoyé à",
+    "error": {
+      "EMPTY_ERROR": "Ce champs ne doit pas être vide.",
+      "INVALID_PHONE_NUMBER_ERROR": "Veuillez entrer un numéro de téléphone valide.",
+      "INVALID_FIRSTNAME_ERROR": "Veuillez entrer un prénom valide (lettres uniquement).",
+      "INVALID_LASTNAME_ERROR": "Veuillez entrer un nom valide (lettres uniquement).",
+      "INVALID_EMAIL_ERROR": "Ce champs ne doit pas être vide.",
+      "INVALID_PASSWORD_ERROR": "Le mot de passe doit contenir au moins une majuscule, au moins une minuscule, au moins un chiffre et un caractère spécial.",
+      "INVALID_CONFIRMATION_PASSWORD_ERROR": "Ce champs ne doit pas être vide.",
+      "INVALID_LOCATION_ERROR": "Ce champs ne doit pas être vide."
+    }
   },
   "wizard": {
     "actions": {

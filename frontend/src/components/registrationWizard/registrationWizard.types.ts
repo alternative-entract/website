@@ -10,6 +10,7 @@ export const REGISTER_FORM_STEPS: string[] = [
 export type SectionType = Record<string, string>
 
 export type ContactInfo = SectionType | {
+
     firstName: string
     lastName: string
     phoneNumber: string

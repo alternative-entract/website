@@ -22,7 +22,7 @@ export const WizardStepperFooter: FC<IWizardStepperFooter> = ({
     }
 
     return (
-        <div className="flex flex-col-reverse md:flex-row w-full mx-8 md:mx-0 md:w-1/2 justify-between gap-6">
+        <div className="flex flex-col-reverse md:flex-row w-full mx-8 md:mx-0 justify-between gap-6">
             <Button
                 onClick={handlePreviousButtonClick}
                 variant={ButtonVariant.WHITE}

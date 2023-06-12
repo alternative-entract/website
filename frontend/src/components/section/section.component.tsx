@@ -1,10 +1,11 @@
 import {FC, ReactNode} from "react";
 
 interface ISection {
+		className?: string
     children: ReactNode
 }
 
-export const Section: FC<ISection> = ({ children }) =>
-    <section className="flex flex-col flex-grow h-[85vh] w-full py-8">
-        {children}
+export const Section: FC<ISection> = ({ className, children }) =>
+    <section className={`flex flex-col w-full ${className}`}>
+			{children}
     </section>

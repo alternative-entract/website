@@ -15,7 +15,7 @@ export interface INavbar {
 }
 
 export const Navbar: FC<INavbar> = ({ logo, items, isMobileMenuOpen, toggleMobileMenu }) =>
-    <nav className="fixed bg-white w-full z-20 top-0 left-0 border-gray-200">
+    <nav className="sticky bg-white w-full z-20 border-gray-200">
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto">
             <a href="/" className="flex items-center">
                 {logo && <img src={logo.src} className="h-40 mr-3" alt={logo.alt}/>}

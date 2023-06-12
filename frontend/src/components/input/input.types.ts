@@ -2,7 +2,7 @@ import {InputHTMLAttributes, ReactNode, RefObject} from "react";
 
 export interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
     ref?: RefObject<HTMLInputElement>;
-    label: string;
+    label?: string;
     name: string;
 		hint?: ReactNode;
 		trailingIcon?: ReactNode;

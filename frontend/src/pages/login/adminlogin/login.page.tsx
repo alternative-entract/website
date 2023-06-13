@@ -1,6 +1,6 @@
 import {useContext, useState} from "react";
 import {AuthContext} from "../../../utils/contexts/auth/context";
-import {userMock} from "../../../userMock";
+import {userMock} from "../../../data/userMock";
 import {Button, ButtonSize, ButtonVariant, PinPad, TextField, Section} from "../../../components";
 import {PageLayout} from "../../../layouts/page.layout";
 import {t} from "../../../utils/i18n/i18n";

@@ -8,6 +8,7 @@ import Register from "./pages/register/register.page";
 import MemberLogin from "./pages/login/memberLogin/login.page";
 import AdminLogin from "./pages/login/adminlogin/login.page";
 import Profile from "./pages/profile/profile.page";
+import ResetPassword from "./pages/resetPassword/resetPassword.component";
 
 export type LocationGenerics = MakeGenerics<Record<string, unknown>>;
 
@@ -15,6 +16,7 @@ export const routes: Route<LocationGenerics>[] = [
     { path: '/home', element: <Home /> },
     { path: '/login/member', element: <MemberLogin /> },
     { path: '/register/member', element: <Register /> },
+    { path: '/reset_password', element: <ResetPassword /> },
     { path: '/login/admin', element: <AdminLogin /> },
     { path: '/', element: <Navigate to="/app" /> },
     {

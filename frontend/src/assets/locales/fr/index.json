@@ -8,12 +8,18 @@
       "email": "Adresse email",
       "emailPlaceholder": "name@company.com",
       "password": "Mot de passe",
-      "forgotPassword": "J'ai oublié mon mot de passe ?"
+      "forgotPasswordLabel": "J'ai oublié mon mot de passe ?"
+    },
+    "forgotPassword": {
+      "title": "Réinitialisation du mot de passe",
+      "email": "Adresse email",
+      "emailPlaceholder": "name@company.com"
     },
     "actions" : {
       "clean": "Effacer",
       "connect": "Se connecter",
-      "register": "Créer un compte"
+      "register": "Créer un compte",
+      "reset": "Envoyer un lien"
     }
   },
   "registration": {

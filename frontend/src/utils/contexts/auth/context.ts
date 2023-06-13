@@ -4,7 +4,7 @@ import {User} from "../../../types/user";
 export interface IAuthContext {
     isAuthenticated: boolean,
     user: User | null
-    login: (email: string) => void
+    login: (email: string, password: string) => void
     isLoading: boolean
     logout: () => void
 }

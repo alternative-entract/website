@@ -3,6 +3,7 @@ import {useNavigate} from "react-location";
 
 const HOME_PATH = '/home';
 const LOGIN_MEMBER_PATH = '/login/member';
+const RESET_PASSWORD_PATH = '/reset_password';
 const REGISTER_MEMBER_PATH = '/register/member';
 const LOGIN_ADMIN_PATH = '/login/admin';
 const APP_PATH = '/app';
@@ -39,3 +40,6 @@ export const useNavigateToProfile = (replace = false) =>
 
 export const useNavigateToProduct = (replace = false) =>
     useNavigateTo(PRODUCT_PATH, replace)
+
+export const useNavigateToResetPassword = (replace = false) =>
+	useNavigateTo(RESET_PASSWORD_PATH, replace)

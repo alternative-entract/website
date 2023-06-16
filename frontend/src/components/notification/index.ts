@@ -7,4 +7,4 @@ export {
 
 export { NotificationRenderer } from "./notificationRenderer";
 
-export { NotificationType } from "./notification.types"
+export { NotificationType } from "./notification.types";

@@ -1,7 +1,7 @@
 import { NotificationContext } from "./context";
 import { useNotificationContext } from "./useNotificationContext";
 import { NotificationProviderProps } from "./types";
-import {NotificationRenderer} from "../../../components";
+import { NotificationRenderer } from "../../../components";
 
 export const NotificationProvider = ({
 	children,

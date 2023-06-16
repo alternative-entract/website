@@ -1,5 +1,5 @@
 import React from "react";
-import {NotificationType} from "../../../components";
+import { NotificationType } from "../../../components";
 
 export type NotificationDismiss = {
 	manually?: boolean;

@@ -1,4 +1,4 @@
-import { t } from "../../utils/i18n/i18n";
+import {t} from "../../utils/i18n/i18n";
 
 export const REGISTER_FORM_STEPS: string[] = [
 	t("form.registrationStep.associationInfo"),
@@ -12,25 +12,25 @@ export type SectionType = Record<string, string>;
 export type ContactInfo =
 	| SectionType
 	| {
-			firstName: string;
-			lastName: string;
-			phoneNumber: string;
-	  };
+	firstName: string;
+	lastName: string;
+	phoneNumber: string;
+};
 
 export type SecurityInfo =
 	| SectionType
 	| {
-			email: string;
-			password: string;
-	  };
+	email: string;
+	password: string;
+};
 
 export type AssociationInfo =
 	| SectionType
 	| {
-			brand: string;
-			location: string;
-			phoneNumber: string;
-	  };
+	brand: string;
+	location: string;
+	phoneNumber: string;
+};
 
 export type RegisterFormData = {
 	contactInfo?: ContactInfo;

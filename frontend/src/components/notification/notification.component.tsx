@@ -30,12 +30,22 @@ export const GenericNotification = ({
 
 		<Body>
 			<Title className="text-gray-800">{title}</Title>
-			{description && <MessageDescription className="text-gray-800">{description}</MessageDescription>}
-			{linkLabel && <MessageLink className="text-blue-500">{linkLabel}</MessageLink>}
+			{description && (
+				<MessageDescription className="text-gray-800">
+					{description}
+				</MessageDescription>
+			)}
+			{linkLabel && (
+				<MessageLink className="text-blue-500">{linkLabel}</MessageLink>
+			)}
 		</Body>
 
 		{closeable && (
-			<CloseAction className="text-grey-800" onClick={onClose} data-testid="notification-close">
+			<CloseAction
+				className="text-grey-800"
+				onClick={onClose}
+				data-testid="notification-close"
+			>
 				<Cancel />
 			</CloseAction>
 		)}

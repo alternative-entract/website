@@ -7,7 +7,8 @@ import {
 	Button,
 	ButtonSize,
 	ButtonVariant,
-	Form, NotificationType,
+	Form,
+	NotificationType,
 	PasswordField,
 	Section,
 	TextField,
@@ -17,7 +18,7 @@ import { t } from "../../../utils/i18n/i18n";
 import { useAuth } from "../../../utils/contexts/auth/useAuth";
 import { Controller, useForm } from "react-hook-form";
 import { useState } from "react";
-import {useNotification} from "../../../utils/contexts/notification/context";
+import { useNotification } from "../../../utils/contexts/notification/context";
 
 const MemberLogin = () => {
 	const { login, isAuthenticated } = useAuth();

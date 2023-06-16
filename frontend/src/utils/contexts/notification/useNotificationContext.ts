@@ -1,7 +1,11 @@
-import {useCallback, useEffect, useMemo, useRef, useState} from "react";
-import {useMatches} from "react-location";
-import {Notification, NotificationContextType, NotificationCreateInput,} from "./types";
-import {uuidv4} from "../../uuidv4";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useMatches } from "react-location";
+import {
+	Notification,
+	NotificationContextType,
+	NotificationCreateInput,
+} from "./types";
+import { uuidv4 } from "../../uuidv4";
 
 export const useNotificationContext = () => {
 	const currentRoutes = useMatches();
@@ -71,7 +75,7 @@ export const useNotificationContext = () => {
 	}, [currentRoutes]);
 
 	return useMemo<NotificationContextType>(
-		() => ({notifications, notify}),
+		() => ({ notifications, notify }),
 		[notifications, notify]
 	);
 };

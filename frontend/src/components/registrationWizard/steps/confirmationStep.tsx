@@ -23,26 +23,26 @@ export const ConfirmationStep: FC = () => {
 
 		const renderSection = (sectionName: keyof RegisterFormData, sectionData: ContactInfo | SecurityInfo | AssociationInfo) => {
 				const handleUpdate = () => {
-					const sectionStepName = t(`registration.${sectionName}.stepName`)
+					const sectionStepName = t(`form.registrationStep.${sectionName}`)
 					const stepToGo = REGISTER_FORM_STEPS.findIndex(step => step === sectionStepName)
 					goToStep(stepToGo)
 				}
         return (
             <div key={sectionName} className="flex justify-between border border-gray-200 rounded-lg mb-4 p-4">
 							<div>
-								<h3 className="text-lg font-medium">{t(`registration.${sectionName}.title`)}</h3>
+								<h3 className="text-lg font-medium">{t(`form.title.${sectionName}`)}</h3>
 								<ul>
 									{Object.entries(sectionData).map(([fieldName, fieldValue]) => (
 										<li key={fieldName}>
 											{fieldName === "password"
-												? <><strong>{REGISTER_FORM_SECTION_LABEL[sectionName][fieldName]}:</strong> <>{t("registration.securityInfo.password.masked")}</> </>
+												? <><strong>{REGISTER_FORM_SECTION_LABEL[sectionName][fieldName]}:</strong> <>{t("form.password.masked")}</> </>
 												: <><strong>{REGISTER_FORM_SECTION_LABEL[sectionName][fieldName]}:</strong> <>{fieldValue}</></>
 											}
 										</li>
 									))}
 								</ul>
 							</div>
-							<div className="cursor-pointer" onClick={handleUpdate} title={t("registration.updateSection")}>
+							<div className="cursor-pointer" onClick={handleUpdate} title={t("form.actions.updateSection")}>
 								<PencilIcon />
 							</div>
             </div>
@@ -52,7 +52,7 @@ export const ConfirmationStep: FC = () => {
     return (
         <div className="flex flex-col w-full items-center gap-8">
             <h1 className="text-lg font-medium leading-none text-gray-900">
-                {t("registration.confirmation.title")}
+                {t("form.title.registrationConfirmation")}
             </h1>
 
             <div>

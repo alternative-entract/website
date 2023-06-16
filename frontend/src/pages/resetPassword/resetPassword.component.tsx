@@ -11,18 +11,18 @@ const ResetPassword = () => {
 				<div className="flex items-center justify-center h-full">
 					<div className="w-full lg:max-w-xl p-6 space-y-8 sm:p-8 rounded-lg shadow-xl">
 						<h2 className="text-2xl font-bold text-gray-900 ">
-							{t("login.forgotPassword.title")}
+							{t("form.title.forgotPassword")}
 						</h2>
 						<form className="mt-8 space-y-6">
 							<div>
 								<label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">
-									{t("login.forgotPassword.email")}
+									{t("form.emailLabel")}
 								</label>
-								<input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder={t("login.forgotPassword.emailPlaceholder")} required/>
+								<input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder={t("form.emailPlaceholder")} required/>
 							</div>
 
 							<Button type="submit" onClick={handleResetPassword} variant={ButtonVariant.BLUE} size={ButtonSize.XL}>
-								{t("login.actions.reset")}
+								{t("form.actions.reset")}
 							</Button>
 						</form>
 					</div>

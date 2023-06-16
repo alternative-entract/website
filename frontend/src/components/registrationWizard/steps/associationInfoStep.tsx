@@ -25,18 +25,18 @@ export const AssociationInfoStep = () => {
     return (
         <div className="flex flex-col w-full items-center gap-16">
             <h1 className="text-lg font-medium leading-none text-gray-900">
-                {t("registration.associationInfo.title")}
+                {t("form.title.associationInfo")}
             </h1>
             <Form onSubmit={handleSubmit(saveData)}>
                 <Controller
                     name={ASSOCIATION_FORM_KEYS.brand}
                     defaultValue=""
                     control={control}
-                    rules={{ required: t("registration.error.EMPTY_ERROR") }}
+                    rules={{ required: t("form.error.EMPTY_ERROR") }}
                     render={({field, formState}) =>
                         <TextField
-                            label={t("registration.associationInfo.brand.label")}
-                            placeholder={t("registration.associationInfo.brand.placeholder")}
+                            label={t("form.brandLabel")}
+                            placeholder={t("form.brandPlaceholder")}
                             error={formState.errors.brand}
                             {...field}
                         />
@@ -47,11 +47,11 @@ export const AssociationInfoStep = () => {
                     name={ASSOCIATION_FORM_KEYS.location}
                     defaultValue=""
                     control={control}
-                    rules={{ required: t("registration.error.EMPTY_ERROR") }}
+                    rules={{ required: t("form.error.EMPTY_ERROR") }}
                     render={({field, formState}) =>
                         <TextField
-                            label={t("registration.associationInfo.location.label")}
-                            placeholder={t("registration.associationInfo.location.placeholder")}
+                            label={t("form.locationLabel")}
+                            placeholder={t("form.locationPlaceholder")}
                             error={formState.errors.location}
                             {...field}
                         />
@@ -63,16 +63,16 @@ export const AssociationInfoStep = () => {
                     defaultValue=""
                     control={control}
                     rules={{
-                        required: t("registration.error.EMPTY_ERROR"),
+                        required: t("form.error.EMPTY_ERROR"),
                         pattern: {
                             value: FORM_PATTERN.PHONE_NUMBER,
-                            message: t("registration.error.INVALID_PHONE_NUMBER_ERROR"),
+                            message: t("form.error.INVALID_PHONE_NUMBER_ERROR"),
                         }
                     }}
                     render={({field, formState}) =>
                         <TextField
-                            label={t("registration.associationInfo.phoneNumber.label")}
-                            placeholder={t("registration.associationInfo.phoneNumber.placeholder")}
+                            label={t("form.phoneNumberLabel")}
+                            placeholder={t("form.phoneNumberPlaceholder")}
                             error={formState.errors.phoneNumber}
                             {...field}
                         />

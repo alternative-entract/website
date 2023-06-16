@@ -8,7 +8,7 @@ interface PageLayoutProps {
 }
 
 export const PageLayout: FC<PageLayoutProps> = ({ children}) => {
-    const { user, isLoading, logout } = useContext(AuthContext);
+    const { token, isLoading, logout } = useContext(AuthContext);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const navigateToProfile = useNavigateToProfile()
     const navigateToProduct = useNavigateToProduct()
@@ -18,7 +18,7 @@ export const PageLayout: FC<PageLayoutProps> = ({ children}) => {
     };
 
     const renderNavbarItems = (): NavbarItemData[] => {
-        if (!isLoading && user) {
+        if (!isLoading && token) {
             return [
                 { label: "Catalogue produits", onClick: navigateToProduct},
                 { label: "Profil", onClick: navigateToProfile },

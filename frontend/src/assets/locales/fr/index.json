@@ -1,89 +1,56 @@
 {
-  "login": {
-    "admin": {
-      "title": "Connexion à l'espace administrateur"
+  "form": {
+    "brandLabel": "Nom de l'association",
+    "brandPlaceholder": "Petland",
+    "emailLabel": "Adresse email",
+    "emailPlaceholder": "name@company.com",
+    "firstNameLabel": "Prénom",
+    "firstNamePlaceholder": "Jean",
+    "lastNameLabel": "Nom",
+    "lastNamePlaceholder": "Dupond",
+    "locationLabel": "Adresse",
+    "locationPlaceholder": "1 rue des Champs Elysées",
+    "password": {
+      "label": "Mot de passe",
+      "hints": {
+        "length": "Doit contenir entre 8 et 20 caractères",
+        "uppercase": "Doit contenir au moins 1 majuscule",
+        "lowercase": "Doit contenir au moins 1 minuscule",
+        "number": "Doit contenir au moins 1 chiffre"
+      },
+      "masked": "masqué",
+      "rules": {
+        "minLength": "Le mot de passe doit contenir au moins {{ number }} caractères.",
+        "maxLength": "Le mot de passe ne doit pas dépasser {{ number }} caractères.",
+        "atLeast": "Doit contenir au moins 1 {{ string }}."
+      }
     },
-    "member": {
-      "title": "Connexion à l'espace adhérent",
-      "email": "Adresse email",
-      "emailPlaceholder": "name@company.com",
-      "password": "Mot de passe",
-      "forgotPasswordLabel": "J'ai oublié mon mot de passe ?"
-    },
-    "forgotPassword": {
-      "title": "Réinitialisation du mot de passe",
-      "email": "Adresse email",
-      "emailPlaceholder": "name@company.com"
-    },
+    "phoneNumberLabel": "N° de téléphone",
+    "phoneNumberPlaceholder": "0112589645",
+    "forgotPasswordLabel": "J'ai oublié mon mot de passe ?",
     "actions" : {
       "clean": "Effacer",
       "connect": "Se connecter",
       "register": "Créer un compte",
-      "reset": "Envoyer un lien"
-    }
-  },
-  "registration": {
-    "associationInfo": {
-      "stepName": "Association",
-      "title": "Identité de l'association",
-      "brand": {
-        "label": "Nom de l'association",
-        "placeholder": "Petland"
-      },
-      "location": {
-        "label": "Adresse",
-        "placeholder": "1 rue des Champs Elysées"
-      },
-      "phoneNumber": {
-        "label": "N° de téléphone",
-        "placeholder": "0112589645"
-      }
+      "reset": "Envoyer un lien",
+      "updateSection": "Modifier la section",
+      "sendEmail": "Envoyer un mail"
     },
-    "contactInfo": {
-      "stepName": "Contact",
-      "title": "Coordonnées de Contact",
-      "firstName": {
-        "label": "Prénom",
-        "placeholder": "Jean"
-      },
-      "lastName": {
-        "label": "Nom",
-        "placeholder": "Dupond"
-      },
-      "phoneNumber": {
-        "label": "N° de téléphone",
-        "placeholder": "0612589645"
-      }
+    "title": {
+      "adminLogin": "Connexion à l'espace administrateur",
+      "memberLogin": "Connexion à l'espace adhérent",
+      "forgotPassword": "Réinitialisation du mot de passe",
+      "associationInfo": "Identité de l'association",
+      "contactInfo": "Coordonnées de Contact",
+      "securityInfo": "Identifiants de connexion",
+      "registrationConfirmation": "Confirmation du formulaire d'inscription"
     },
-    "securityInfo": {
-      "stepName": "Identification",
-      "title": "Identifiants de connexion",
-      "email": {
-        "label": "Adresse e-mail",
-        "placeholder": "jean.dupond@gmail.com"
-      },
-      "password": {
-        "label": "Mot de passe",
-        "hints": {
-            "length": "Doit contenir entre 8 et 20 caractères",
-            "uppercase": "Doit contenir au moins 1 majuscule",
-            "lowercase": "Doit contenir au moins 1 minuscule",
-            "number": "Doit contenir au moins 1 chiffre"
-        },
-        "masked": "masqué",
-        "rules": {
-          "minLength": "Le mot de passe doit contenir au moins {{ number }} caractères.",
-          "maxLength": "Le mot de passe ne doit pas dépasser {{ number }} caractères.",
-          "atLeast": "Doit contenir au moins 1 {{ string }}."
-        }
-      }
+    "registrationStep": {
+      "associationInfo": "Association",
+      "contactInfo": "Contact",
+      "securityInfo": "Identification",
+      "confirmation": "Confirmation"
     },
-    "confirmation": {
-      "stepName": "Confirmation",
-      "title": "Confirmation du formulaire d'inscription"
-    },
-    "updateSection": "Modifier la section",
-    "sendEmail": "Envoyer un mail",
     "postRegistrationInstruction": "Pour finaliser votre demande d'inscription, cliquez sur le lien que nous vous avons envoyé à",
     "error": {
       "EMPTY_ERROR": "Ce champs ne doit pas être vide.",
@@ -93,7 +60,8 @@
       "INVALID_EMAIL_ERROR": "Ce champs ne doit pas être vide.",
       "INVALID_PASSWORD_ERROR": "Le mot de passe doit contenir au moins une majuscule, au moins une minuscule, au moins un chiffre et un caractère spécial.",
       "INVALID_CONFIRMATION_PASSWORD_ERROR": "Ce champs ne doit pas être vide.",
-      "INVALID_LOCATION_ERROR": "Ce champs ne doit pas être vide."
+      "INVALID_LOCATION_ERROR": "Ce champs ne doit pas être vide.",
+      "UNEXPECTED_ERROR": "Une erreur est survenue"
     }
   },
   "wizard": {

@@ -6,14 +6,14 @@ export const validatePassword = (value: string) => {
 	const hasDigit = /(?=.*?[0-9])/.test(value)
 
 	if(!hasUpperCase) {
-		return t("registration.securityInfo.password.rules.atLeast", { string: "masjuscule" })
+		return t("form.password.rules.atLeast", { string: "masjuscule" })
 	}
 
 	if(!hasLowerCase) {
-		return t("registration.securityInfo.password.rules.atLeast", { string: "minuscule" })
+		return t("form.password.rules.atLeast", { string: "minuscule" })
 	}
 
 	if (!hasDigit) {
-		return t("registration.securityInfo.password.rules.atLeast", { string: "chiffre" })
+		return t("form.password.rules.atLeast", { string: "chiffre" })
 	}
 }

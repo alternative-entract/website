@@ -26,10 +26,10 @@ export const SecurityStep = () => {
 
 	const renderPasswordHint = () => {
 		const passwordRequirements: string[] = [
-			t("registration.securityInfo.password.hints.length"),
-			t("registration.securityInfo.password.hints.uppercase"),
-			t("registration.securityInfo.password.hints.lowercase"),
-			t("registration.securityInfo.password.hints.number")
+			t("form.password.hints.length"),
+			t("form.password.hints.uppercase"),
+			t("form.password.hints.lowercase"),
+			t("form.password.hints.number")
 		]
 		return <InputHint requirements={passwordRequirements}/>
 	}
@@ -37,7 +37,7 @@ export const SecurityStep = () => {
 	return (
 		<div className="flex flex-col w-full items-center gap-16">
 			<h1 className="text-lg font-medium leading-none text-gray-900">
-				{t("registration.securityInfo.title")}
+				{t("form.title.securityInfo")}
 			</h1>
 			<Form onSubmit={handleSubmit(saveData)}>
 				<Controller
@@ -45,16 +45,16 @@ export const SecurityStep = () => {
 					defaultValue=""
 					control={control}
 					rules={{
-						required: t("registration.error.EMPTY_ERROR"),
+						required: t("form.error.EMPTY_ERROR"),
 						pattern: {
 							value: FORM_PATTERN.EMAIL,
-							message: t("registration.error.INVALID_EMAIL_ERROR"),
+							message: t("form.error.INVALID_EMAIL_ERROR"),
 						},
 					}}
 					render={({field, formState}) =>
 						<EmailField
-							label={t("registration.securityInfo.email.label")}
-							placeholder={t("registration.securityInfo.email.placeholder")}
+							label={t("form.emailLabel")}
+							placeholder={t("form.emailPlaceholder")}
 							error={formState.errors.email}
 							{...field}
 						/>
@@ -66,14 +66,14 @@ export const SecurityStep = () => {
 					defaultValue=""
 					control={control}
 					rules={{
-						required: t("registration.error.EMPTY_ERROR"),
-						minLength: {value: 8, message: t("registration.securityInfo.password.rules.minLength", {number: 8})},
-						maxLength: {value: 20, message: t("registration.securityInfo.password.rules.maxLength", {number: 20})},
+						required: t("form.error.EMPTY_ERROR"),
+						minLength: {value: 8, message: t("form.password.rules.minLength", {number: 8})},
+						maxLength: {value: 20, message: t("form.password.rules.maxLength", {number: 20})},
 						validate: validatePassword
 					}}
 					render={({field, formState}) =>
 						<PasswordField
-							label={t("registration.securityInfo.password.label")}
+							label={t("form.password.label")}
 							error={formState.errors.password}
 							showPassword={showPassword}
 							onEyeClick={() => setShowPassword(!showPassword)}

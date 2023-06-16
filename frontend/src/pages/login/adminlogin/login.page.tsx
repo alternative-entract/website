@@ -10,7 +10,7 @@ const AdminLogin = () => {
     const [pin, setPin] = useState<string>('');
 
     const handleLogin = () => {
-        login(userMock.email)
+        login(userMock.email, userMock.password)
     }
 
     const resetInput = () => {
@@ -27,17 +27,17 @@ const AdminLogin = () => {
 								<div className="flex items-center justify-center h-full">
 											<div className="w-full lg:max-w-xl p-6 space-y-8 sm:p-8 rounded-lg shadow-xl">
 													<h2 className="text-2xl font-bold text-gray-900 ">
-															{t("login.admin.title")}
+															{t("form.title.adminLogin")}
 													</h2>
-													<form className="flex flex-col md:items-start mt-8 space-y-6" action="login">
+													<form className="flex flex-col md:items-start mt-8 space-y-6">
 															<TextField value={pin} isReadonly name="pinpad-textfield" />
 															<PinPad onChange={handlePinChange}  />
 															<div className="flex gap-2">
 																	<Button size={ButtonSize.XL} variant={ButtonVariant.WHITE} onClick={resetInput}>
-																			{t("login.actions.clean")}
+																			{t("form.actions.clean")}
 																	</Button>
 																	<Button type="submit" size={ButtonSize.XL} variant={ButtonVariant.AMBER} onClick={handleLogin}>
-																			{t("login.actions.connect")}
+																			{t("form.actions.connect")}
 																	</Button>
 															</div>
 

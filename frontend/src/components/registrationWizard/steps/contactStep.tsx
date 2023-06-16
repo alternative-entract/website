@@ -26,7 +26,7 @@ export const ContactStep = () => {
     return (
         <div className="flex flex-col w-full items-center gap-16">
             <h1 className="text-lg font-medium leading-none text-gray-900">
-                {t("registration.contactInfo.title")}
+                {t("form.title.contactInfo")}
             </h1>
 
             <Form onSubmit={handleSubmit(saveData)}>
@@ -35,16 +35,16 @@ export const ContactStep = () => {
                     defaultValue=""
                     control={control}
                     rules={{
-                        required: t("registration.error.EMPTY_ERROR"),
+                        required: t("form.error.EMPTY_ERROR"),
                         pattern: {
                             value: FORM_PATTERN.TEXT,
-                            message: t("registration.error.INVALID_FIRSTNAME_ERROR"),
+                            message: t("form.error.INVALID_FIRSTNAME_ERROR"),
                         },
                     }}
                     render={({field, formState}) =>
                         <TextField
-                            label={t("registration.contactInfo.firstName.label")}
-                            placeholder={t("registration.contactInfo.firstName.placeholder")}
+                            label={t("form.firstNameLabel")}
+                            placeholder={t("form.firstNamePlaceholder")}
                             error={formState.errors.firstName}
                             {...field}
                         />
@@ -56,16 +56,16 @@ export const ContactStep = () => {
                     defaultValue=""
                     control={control}
                     rules={{
-                        required: t("registration.error.EMPTY_ERROR"),
+                        required: t("form.error.EMPTY_ERROR"),
                         pattern: {
                             value: FORM_PATTERN.TEXT,
-                            message: t("registration.error.INVALID_LASTNAME_ERROR"),
+                            message: t("form.error.INVALID_LASTNAME_ERROR"),
                         },
                     }}
                     render={({field, formState}) =>
                         <TextField
-                            label={t("registration.contactInfo.lastName.label")}
-                            placeholder={t("registration.contactInfo.lastName.placeholder")}
+                            label={t("form.lastNameLabel")}
+                            placeholder={t("form.lastNamePlaceholder")}
                             error={formState.errors.lastName}
                             {...field}
                         />
@@ -77,16 +77,16 @@ export const ContactStep = () => {
                     control={control}
                     defaultValue=""
                     rules={{
-                        required: t("registration.error.EMPTY_ERROR"),
+                        required: t("form.error.EMPTY_ERROR"),
                         pattern: {
                             value: FORM_PATTERN.PHONE_NUMBER,
-                            message: t("registration.error.INVALID_PHONE_NUMBER_ERROR"),
+                            message: t("form.error.INVALID_PHONE_NUMBER_ERROR"),
                         }
                     }}
                     render={({field, formState}) =>
                         <TextField
-                            label={t("registration.contactInfo.phoneNumber.label")}
-                            placeholder={t("registration.contactInfo.phoneNumber.placeholder")}
+                            label={t("form.phoneNumberLabel")}
+                            placeholder={t("form.phoneNumberPlaceholder")}
                             error={formState.errors.phoneNumber}
                             {...field}
                         />

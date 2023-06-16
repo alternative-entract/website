@@ -1,1 +1,3 @@
-export const sendResetPasswordLink = () => {}
+export const sendResetPasswordLink = () => {
+	return
+}

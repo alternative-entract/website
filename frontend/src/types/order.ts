@@ -1,13 +1,13 @@
-import {User} from "./user";
-import {Product} from "./product";
+import { User } from "./user";
+import { Product } from "./product";
 
 export type SingleOrderItemSchema = {
-    name: string,
-    image: string,
-    price: number,
-    amount: number,
-    product: Product,
-}
+	name: string;
+	image: string;
+	price: number;
+	amount: number;
+	product: Product;
+};
 
 /*export enum OrderStatus {
     PENDING = "pending",
@@ -18,11 +18,11 @@ export type SingleOrderItemSchema = {
 }*/
 
 export type Order = {
-    tax: number
-    shippingFee: number
-    subTotal: number
-    total: number
-    orderItems: SingleOrderItemSchema[],
-    status: string,
-    user: User
-}
+	tax: number;
+	shippingFee: number;
+	subTotal: number;
+	total: number;
+	orderItems: SingleOrderItemSchema[];
+	status: string;
+	user: User;
+};

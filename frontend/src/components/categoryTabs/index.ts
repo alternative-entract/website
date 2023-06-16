@@ -1,1 +1,1 @@
-export { CategoryTabs } from "./categoryTabs.component"
+export { CategoryTabs } from "./categoryTabs.component";

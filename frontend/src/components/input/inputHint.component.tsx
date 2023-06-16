@@ -1,8 +1,13 @@
-import {FloatingPortal, useFloating, useHover, useInteractions} from "@floating-ui/react";
-import {FC, useState} from "react";
+import {
+	FloatingPortal,
+	useFloating,
+	useHover,
+	useInteractions,
+} from "@floating-ui/react";
+import { FC, useState } from "react";
 
 interface IIntputHints {
-	requirements: string[]
+	requirements: string[];
 }
 
 export const InputHint: FC<IIntputHints> = ({ requirements }) => {
@@ -11,10 +16,12 @@ export const InputHint: FC<IIntputHints> = ({ requirements }) => {
 	const { refs, floatingStyles, context } = useFloating({
 		open: isHintOpen,
 		onOpenChange: setIsHintOpen,
-		placement: 'right-start',
+		placement: "right-start",
 	});
 
-	const { getReferenceProps, getFloatingProps } = useInteractions([useHover(context)]);
+	const { getReferenceProps, getFloatingProps } = useInteractions([
+		useHover(context),
+	]);
 
 	return (
 		<>
@@ -34,13 +41,13 @@ export const InputHint: FC<IIntputHints> = ({ requirements }) => {
 						{...getFloatingProps()}
 					>
 						<ul>
-							{requirements.map((requirement, index) =>
+							{requirements.map((requirement, index) => (
 								<li key={`${requirement}-${index}`}>{requirement}</li>
-							)}
+							))}
 						</ul>
 					</div>
 				)}
 			</FloatingPortal>
 		</>
 	);
-}
+};

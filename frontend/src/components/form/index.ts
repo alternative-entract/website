@@ -1,1 +1,1 @@
-export { Form } from "./form.component"
+export { Form } from "./form.component";

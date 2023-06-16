@@ -28,7 +28,7 @@
     "phoneNumberLabel": "N° de téléphone",
     "phoneNumberPlaceholder": "0112589645",
     "forgotPasswordLabel": "J'ai oublié mon mot de passe ?",
-    "actions" : {
+    "actions": {
       "clean": "Effacer",
       "connect": "Se connecter",
       "register": "Créer un compte",

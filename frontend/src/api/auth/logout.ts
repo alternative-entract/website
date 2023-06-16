@@ -1,3 +1,3 @@
 export const logout = () => {
-	return
-}
+	return;
+};

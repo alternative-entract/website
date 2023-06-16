@@ -1,1 +1,1 @@
-export { PinPad } from "./pinpad.component"
+export { PinPad } from "./pinpad.component";

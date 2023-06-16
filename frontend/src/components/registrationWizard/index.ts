@@ -1,1 +1,1 @@
-export { RegisterWizard } from "./registrationWizard.component"
+export { RegisterWizard } from "./registrationWizard.component";

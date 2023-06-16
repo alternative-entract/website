@@ -1,59 +1,61 @@
-import { FC, ReactNode, useEffect, useState } from 'react';
+import { FC, ReactNode, useEffect, useState } from "react";
 import { AuthContext } from "./context";
-import {loginAPI} from "../../../api/auth/login";
+import { loginAPI } from "../../../api/auth/login";
 
 type AuthProviderProps = {
-    children: ReactNode;
+	children: ReactNode;
 };
 
-const TOKEN_KEY = "userToken"
+const TOKEN_KEY = "userToken";
 
 export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
-    const [loading, setLoading] = useState(true)
-		const [isAuthenticated, setIsAuthenticated] = useState(false)
-		const [token, setToken] = useState<string|null>(null)
+	const [loading, setLoading] = useState(true);
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
+	const [token, setToken] = useState<string | null>(null);
 
-		const getStoredItem = (token: string) => localStorage.getItem(token)
-		const removeStoredItem = (token: string) => localStorage.removeItem(token)
+	const getStoredItem = (token: string) => localStorage.getItem(token);
+	const removeStoredItem = (token: string) => localStorage.removeItem(token);
 
-		const storeToken = (tokenToStore: string) => {
-			if (getStoredItem(TOKEN_KEY)) {
-				removeStoredItem(TOKEN_KEY);
-			}
-			localStorage.setItem(TOKEN_KEY, tokenToStore);
+	const storeToken = (tokenToStore: string) => {
+		if (getStoredItem(TOKEN_KEY)) {
+			removeStoredItem(TOKEN_KEY);
 		}
+		localStorage.setItem(TOKEN_KEY, tokenToStore);
+	};
 
-    const login = async (email: string, password: string) => {
-			try {
-				const { token } = await loginAPI(email, password);
-				setIsAuthenticated(!!token);
-				setToken(token);
-				storeToken(token)
-			} catch (error) {
-				if (error instanceof Error) {
-					throw (error.message);
-				}
+	const login = async (email: string, password: string) => {
+		try {
+			const { token } = await loginAPI(email, password);
+			setIsAuthenticated(!!token);
+			setToken(token);
+			storeToken(token);
+		} catch (error) {
+			if (error instanceof Error) {
+				throw error.message;
 			}
 		}
+	};
 
-    const logout = () => {
-			removeStoredItem(TOKEN_KEY)
-			setIsAuthenticated(false)
-			setToken(null)
-    }
+	const logout = () => {
+		removeStoredItem(TOKEN_KEY);
+		setIsAuthenticated(false);
+		setToken(null);
+	};
 
-    useEffect(() => {
-        const existingToken = getStoredItem(TOKEN_KEY);
-        if (existingToken) {
-						setIsAuthenticated(true)
-						setToken(existingToken)
-        }
-        setLoading(false)
-    }, []);
+	useEffect(() => {
+		const existingToken = getStoredItem(TOKEN_KEY);
+		if (existingToken) {
+			setIsAuthenticated(true);
+			setToken(existingToken);
+		}
+		setLoading(false);
+	}, []);
 
-    return (
-        <AuthContext.Provider value={{ isAuthenticated, login, isLoading: loading, logout, token }}>
-            {children}
-        </AuthContext.Provider>
-    );
+	return (
+		<AuthContext.Provider
+			value={{ isAuthenticated, login, isLoading: loading, logout, token }}
+		>
+			{children}
+		</AuthContext.Provider>
+	);
 };

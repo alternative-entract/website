@@ -8,7 +8,7 @@ export type User = {
     email: string
     password: string
     role: UserRole,
-    verificationToken: string
+    verificationToken?: string
     isVerified: boolean
     verified: Date
     passwordToken: string

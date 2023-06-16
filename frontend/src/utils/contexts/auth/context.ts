@@ -1,16 +1,15 @@
 import {createContext} from 'react';
-import {User} from "../../../types/user";
 
 export interface IAuthContext {
     isAuthenticated: boolean,
-    user: User | null
-    login: (email: string) => void
+    token: string | null
+    login: (email: string, password: string) => unknown
     isLoading: boolean
     logout: () => void
 }
 export const AuthContext = createContext<IAuthContext>({
     isAuthenticated: false,
-    user: null,
+    token: null,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     login: () => {},
     isLoading: false,

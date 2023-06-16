@@ -9,7 +9,7 @@ interface IRegistrationSuccess {
 export const RegistrationSuccess: FC<IRegistrationSuccess> = ({ userEmail }) => {
 	return (
 		<div className="flex flex-col justify-center items-center gap-8">
-			<p>{t("registration.postRegistrationInstruction")} <strong>{ userEmail }.</strong></p>
+			<p>{t("form.postRegistrationInstruction")} <strong>{ userEmail }.</strong></p>
 			<div className="w-1/2">
 				<Button size={ButtonSize.XL} variant={ButtonVariant.BLUE} >
 					{t("wizard.actions.returnToHome")}

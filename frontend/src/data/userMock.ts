@@ -1,4 +1,4 @@
-import {User, UserRole} from './types/user'
+import {User, UserRole} from '../types/user'
 
 /** Mocks data used to login */
 export const userMock: User = {

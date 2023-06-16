@@ -1,10 +1,10 @@
 import {t} from "../../utils/i18n/i18n";
 
 export const REGISTER_FORM_STEPS: string[] = [
-	t("registration.associationInfo.stepName"),
-	t("registration.contactInfo.stepName"),
-	t("registration.securityInfo.stepName"),
-	t("registration.confirmation.stepName")
+	t("form.registrationStep.associationInfo"),
+	t("form.registrationStep.contactInfo"),
+	t("form.registrationStep.securityInfo"),
+	t("form.registrationStep.confirmation")
 ]
 
 export type SectionType = Record<string, string>
@@ -51,18 +51,18 @@ export const ASSOCIATION_FORM_KEYS: Record<keyof AssociationInfo, string> = {
 
 export const REGISTER_FORM_SECTION_LABEL: Record<keyof RegisterFormData, SectionType> = {
 	associationInfo: {
-		brand: t("registration.associationInfo.brand.label"),
-		location: t("registration.associationInfo.location.label"),
-		phoneNumber: t("registration.associationInfo.phoneNumber.label"),
+		brand: t("form.brandLabel"),
+		location: t("form.locationLabel"),
+		phoneNumber: t("form.phoneNumberLabel"),
 	},
 	contactInfo: {
-		firstName: t("registration.contactInfo.firstName.label"),
-		lastName: t("registration.contactInfo.lastName.label"),
-		phoneNumber: t("registration.contactInfo.phoneNumber.label")
+		firstName: t("form.firstNameLabel"),
+		lastName: t("form.lastNameLabel"),
+		phoneNumber: t("form.phoneNumberLabel")
 	},
 	securityInfo: {
-		email: t("registration.securityInfo.email.label"),
-		password: t("registration.securityInfo.password.label")
+		email: t("form.emailLabel"),
+		password: t("form.password.label")
 	}
 } as const
 

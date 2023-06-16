@@ -1,5 +1,5 @@
 import {Navigate, Outlet} from "react-location";
-import {useAuth} from "../../features/auth/useAuth";
+import {useAuth} from "../../utils/contexts/auth/useAuth";
 import {t} from "../../utils/i18n/i18n";
 
 export const AuthWrapper = () => {

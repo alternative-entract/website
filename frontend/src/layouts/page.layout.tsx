@@ -8,7 +8,7 @@ interface PageLayoutProps {
 }
 
 export const PageLayout: FC<PageLayoutProps> = ({ children}) => {
-    const { user, isLoading, logout } = useContext(AuthContext);
+    const { token, isLoading, logout } = useContext(AuthContext);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const navigateToProfile = useNavigateToProfile()
     const navigateToProduct = useNavigateToProduct()
@@ -18,7 +18,7 @@ export const PageLayout: FC<PageLayoutProps> = ({ children}) => {
     };
 
     const renderNavbarItems = (): NavbarItemData[] => {
-        if (!isLoading && user) {
+        if (!isLoading && token) {
             return [
                 { label: "Catalogue produits", onClick: navigateToProduct},
                 { label: "Profil", onClick: navigateToProfile },
@@ -44,7 +44,7 @@ export const PageLayout: FC<PageLayoutProps> = ({ children}) => {
                 <main className="flex overflow-y grow">
 										{children}
                 </main>
-                <footer className="flex flex-col gap-2 z-20 p-4 shadow md:p-6 bg-white mt-auto">
+                <footer className="flex flex-col gap-2 z-20 p-4 md:p-6 bg-white mt-auto">
 										<div className="flex flex-col items-center sm:flex-row sm:justify-between">
 												<img src="https://res.cloudinary.com/dgvuo8wbh/image/upload/v1685013352/file-upload/Kolabee-Logotype_e3ujcs.png" className="h-16 mr-3" alt="Kolabee Logo"/>
 												<img src="https://res.cloudinary.com/dgvuo8wbh/image/upload/v1685013352/file-upload/Frise_2_je7ehr.png" className="h-24 ml-3" alt="Logos des financeurs"/>

@@ -13,41 +13,41 @@ import ResetPassword from "./pages/resetPassword/resetPassword.component";
 export type LocationGenerics = MakeGenerics<Record<string, unknown>>;
 
 export const routes: Route<LocationGenerics>[] = [
-	{ path: "/home", element: <Home /> },
-	{ path: "/login/member", element: <MemberLogin /> },
-	{ path: "/register/member", element: <Register /> },
-	{ path: "/reset_password", element: <ResetPassword /> },
-	{ path: "/login/admin", element: <AdminLogin /> },
-	{ path: "/", element: <Navigate to="/app" /> },
-	{
-		path: "/app",
-		element: <AuthWrapper />,
-		children: [
-			{
-				path: "/",
-				element: <Navigate to="products" />,
-			},
-			{
-				path: "products",
-				children: [
-					{
-						path: "/",
-						element: <Products />,
-					},
-					{
-						path: ":productId",
-						element: <ProductDetails />,
-					},
-					{ path: "*", element: <NotFound /> },
-				],
-			},
-			{
-				path: "profile",
-				element: <Profile />,
-			},
-			/* { path: 'administration', element: <Administration /> }, */
-			{ path: "*", element: <NotFound /> },
-		],
-	},
-	{ path: "*", element: <Navigate to="/home" /> },
+    { path: "/home", element: <Home /> },
+    { path: "/login/member", element: <MemberLogin /> },
+    { path: "/register/member", element: <Register /> },
+    { path: "/reset_password", element: <ResetPassword /> },
+    { path: "/login/admin", element: <AdminLogin /> },
+    { path: "/", element: <Navigate to="/app" /> },
+    {
+        path: "/app",
+        element: <AuthWrapper />,
+        children: [
+            {
+                path: "/",
+                element: <Navigate to="products" />,
+            },
+            {
+                path: "products",
+                children: [
+                    {
+                        path: "/",
+                        element: <Products />,
+                    },
+                    {
+                        path: ":productId",
+                        element: <ProductDetails />,
+                    },
+                    { path: "*", element: <NotFound /> },
+                ],
+            },
+            {
+                path: "profile",
+                element: <Profile />,
+            },
+            /* { path: 'administration', element: <Administration /> }, */
+            { path: "*", element: <NotFound /> },
+        ],
+    },
+    { path: "*", element: <Navigate to="/home" /> },
 ];

@@ -1,4 +1,4 @@
 export type BreadcrumbItemData = {
-	title: string;
-	href?: string | null;
+    title: string;
+    href?: string | null;
 };

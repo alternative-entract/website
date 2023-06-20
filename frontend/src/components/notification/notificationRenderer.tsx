@@ -7,40 +7,40 @@ const NOTIFICATION_WIDTH = 498;
 const NOTIFICATION_MARGIN = 16;
 
 const NotificationOutlet = styled.div`
-	position: fixed;
-	width: ${NOTIFICATION_WIDTH}px;
-	top: ${NOTIFICATION_MARGIN}px;
-	right: ${NOTIFICATION_MARGIN}px;
-	z-index: 999999;
+    position: fixed;
+    width: ${NOTIFICATION_WIDTH}px;
+    top: ${NOTIFICATION_MARGIN}px;
+    right: ${NOTIFICATION_MARGIN}px;
+    z-index: 999999;
 
-	& > div {
-		margin-bottom: ${NOTIFICATION_MARGIN}px;
-	}
+    & > div {
+        margin-bottom: ${NOTIFICATION_MARGIN}px;
+    }
 `;
 
 type Notification = NotificationCreateInput & {
-	id: string;
-	dismiss: () => void;
+    id: string;
+    dismiss: () => void;
 };
 
 interface INotificationRenderer {
-	notifications: Notification[];
+    notifications: Notification[];
 }
 
 export const NotificationRenderer: FC<INotificationRenderer> = ({
-	notifications,
+    notifications,
 }) => {
-	return (
-		<NotificationOutlet>
-			{notifications.map((notification) => (
-				<Notification
-					{...notification}
-					type={notification.type}
-					key={notification.id}
-					closeable={notification.dismissMode.manually}
-					onClose={() => notification.dismiss()}
-				/>
-			))}
-		</NotificationOutlet>
-	);
+    return (
+        <NotificationOutlet>
+            {notifications.map((notification) => (
+                <Notification
+                    {...notification}
+                    type={notification.type}
+                    key={notification.id}
+                    closeable={notification.dismissMode.manually}
+                    onClose={() => notification.dismiss()}
+                />
+            ))}
+        </NotificationOutlet>
+    );
 };

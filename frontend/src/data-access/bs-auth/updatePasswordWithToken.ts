@@ -1,3 +1,3 @@
 export const updatePasswordWithToken = () => {
-	return;
+    return;
 };

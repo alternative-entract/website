@@ -1,4 +1,4 @@
-import { ProductMap } from "../../data/products";
+import { ProductMap } from "../../mocks/products";
 import { Product } from "../../types/product";
 
 export const mapProductsOnCategory = (products: Product[]): ProductMap => {

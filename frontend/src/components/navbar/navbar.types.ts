@@ -1,4 +1,4 @@
 export type NavbarItemData = {
-	label: string;
-	onClick: () => void;
+    label: string;
+    onClick: () => void;
 };

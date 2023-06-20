@@ -3,5 +3,5 @@ import { InputField } from "./inputField.component";
 import { forwardRef } from "react";
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
-	({ ...rest }, ref) => <InputField ref={ref} type="text" {...rest} />
+    ({ ...rest }, ref) => <InputField ref={ref} type="text" {...rest} />
 );

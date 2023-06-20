@@ -4,15 +4,15 @@ import { NotificationProviderProps } from "./types";
 import { NotificationRenderer } from "../../../components";
 
 export const NotificationProvider = ({
-	children,
+    children,
 }: NotificationProviderProps) => {
-	const providerValue = useNotificationContext();
+    const providerValue = useNotificationContext();
 
-	return (
-		<NotificationContext.Provider value={providerValue}>
-			<NotificationRenderer notifications={providerValue.notifications} />
+    return (
+        <NotificationContext.Provider value={providerValue}>
+            <NotificationRenderer notifications={providerValue.notifications} />
 
-			{children}
-		</NotificationContext.Provider>
-	);
+            {children}
+        </NotificationContext.Provider>
+    );
 };

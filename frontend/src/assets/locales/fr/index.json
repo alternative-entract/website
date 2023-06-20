@@ -1,104 +1,112 @@
 {
-  "form": {
-    "brandLabel": "Nom de l'association",
-    "brandPlaceholder": "Petland",
-    "emailLabel": "Adresse email",
-    "emailPlaceholder": "name@company.com",
-    "firstNameLabel": "Prénom",
-    "firstNamePlaceholder": "Jean",
-    "lastNameLabel": "Nom",
-    "lastNamePlaceholder": "Dupond",
-    "locationLabel": "Adresse",
-    "locationPlaceholder": "1 rue des Champs Elysées",
-    "password": {
-      "label": "Mot de passe",
-      "hints": {
-        "length": "Doit contenir entre 8 et 20 caractères",
-        "uppercase": "Doit contenir au moins 1 majuscule",
-        "lowercase": "Doit contenir au moins 1 minuscule",
-        "number": "Doit contenir au moins 1 chiffre"
-      },
-      "masked": "masqué",
-      "rules": {
-        "minLength": "Le mot de passe doit contenir au moins {{ number }} caractères.",
-        "maxLength": "Le mot de passe ne doit pas dépasser {{ number }} caractères.",
-        "atLeast": "Doit contenir au moins 1 {{ string }}."
-      }
+    "form": {
+        "brandLabel": "Nom de l'association",
+        "brandPlaceholder": "Petland",
+        "emailLabel": "Adresse email",
+        "emailPlaceholder": "name@company.com",
+        "firstNameLabel": "Prénom",
+        "firstNamePlaceholder": "Jean",
+        "lastNameLabel": "Nom",
+        "lastNamePlaceholder": "Dupond",
+        "locationLabel": "Adresse",
+        "locationPlaceholder": "1 rue des Champs Elysées",
+        "password": {
+            "label": "Mot de passe",
+            "hints": {
+                "length": "Doit contenir entre 8 et 20 caractères",
+                "uppercase": "Doit contenir au moins 1 majuscule",
+                "lowercase": "Doit contenir au moins 1 minuscule",
+                "number": "Doit contenir au moins 1 chiffre"
+            },
+            "masked": "masqué",
+            "rules": {
+                "minLength": "Le mot de passe doit contenir au moins {{ number }} caractères.",
+                "maxLength": "Le mot de passe ne doit pas dépasser {{ number }} caractères.",
+                "atLeast": "Doit contenir au moins 1 {{ string }}."
+            }
+        },
+        "phoneNumberLabel": "N° de téléphone",
+        "phoneNumberPlaceholder": "0112589645",
+        "forgotPasswordLabel": "J'ai oublié mon mot de passe ?",
+        "actions": {
+            "clean": "Effacer",
+            "connect": "Se connecter",
+            "register": "Créer un compte",
+            "reset": "Envoyer un lien",
+            "updateSection": "Modifier la section",
+            "sendEmail": "Envoyer un mail"
+        },
+        "title": {
+            "adminLogin": "Connexion à l'espace administrateur",
+            "memberLogin": "Connexion à l'espace adhérent",
+            "forgotPassword": "Réinitialisation du mot de passe",
+            "associationInfo": "Identité de l'association",
+            "contactInfo": "Coordonnées de Contact",
+            "securityInfo": "Identifiants de connexion",
+            "registrationConfirmation": "Confirmation du formulaire d'inscription"
+        },
+        "registrationStep": {
+            "associationInfo": "Association",
+            "contactInfo": "Contact",
+            "securityInfo": "Identification",
+            "confirmation": "Confirmation"
+        },
+        "postRegistrationInstruction": "Pour finaliser votre demande d'inscription, cliquez sur le lien que nous vous avons envoyé à",
+        "inputError": {
+            "EMPTY_ERROR": "Ce champs ne doit pas être vide.",
+            "INVALID_PHONE_NUMBER_ERROR": "Veuillez entrer un numéro de téléphone valide.",
+            "INVALID_FIRSTNAME_ERROR": "Veuillez entrer un prénom valide (lettres uniquement).",
+            "INVALID_LASTNAME_ERROR": "Veuillez entrer un nom valide (lettres uniquement).",
+            "INVALID_EMAIL_ERROR": "Ce champs ne doit pas être vide.",
+            "INVALID_PASSWORD_ERROR": "Le mot de passe doit contenir au moins une majuscule, au moins une minuscule, au moins un chiffre et un caractère spécial.",
+            "INVALID_CONFIRMATION_PASSWORD_ERROR": "Ce champs ne doit pas être vide.",
+            "INVALID_LOCATION_ERROR": "Ce champs ne doit pas être vide."
+        },
+        "notificationError": {
+            "OK": "OK",
+            "UNEXPECTED_ERROR": "Une erreur est survenue",
+            "CONNEXION_ERROR": "Erreur de connexion",
+            "INVALID_CREDENTIALS_USER": "Email non reconnu",
+            "INVALID_CREDENTIALS_PASSWORD": "Mot de passe incorrect",
+            "UNVERIFIED_EMAIL": "Vous n'avez pas cliqué sur le lien de validation que nous vous avons envoyé par mail",
+            "INVALID_TOKEN": "Session expirée"
+        }
     },
-    "phoneNumberLabel": "N° de téléphone",
-    "phoneNumberPlaceholder": "0112589645",
-    "forgotPasswordLabel": "J'ai oublié mon mot de passe ?",
-    "actions": {
-      "clean": "Effacer",
-      "connect": "Se connecter",
-      "register": "Créer un compte",
-      "reset": "Envoyer un lien",
-      "updateSection": "Modifier la section",
-      "sendEmail": "Envoyer un mail"
+    "wizard": {
+        "actions": {
+            "previousStep": "Etape précédente",
+            "nextStep": "Etape suivante",
+            "confirm": "Confirmer",
+            "returnToHome": "Retourner à l'accueil"
+        }
     },
-    "title": {
-      "adminLogin": "Connexion à l'espace administrateur",
-      "memberLogin": "Connexion à l'espace adhérent",
-      "forgotPassword": "Réinitialisation du mot de passe",
-      "associationInfo": "Identité de l'association",
-      "contactInfo": "Coordonnées de Contact",
-      "securityInfo": "Identifiants de connexion",
-      "registrationConfirmation": "Confirmation du formulaire d'inscription"
+    "common": {
+        "or": "OU",
+        "loading": "Loading..."
     },
-    "registrationStep": {
-      "associationInfo": "Association",
-      "contactInfo": "Contact",
-      "securityInfo": "Identification",
-      "confirmation": "Confirmation"
-    },
-    "postRegistrationInstruction": "Pour finaliser votre demande d'inscription, cliquez sur le lien que nous vous avons envoyé à",
     "error": {
-      "EMPTY_ERROR": "Ce champs ne doit pas être vide.",
-      "INVALID_PHONE_NUMBER_ERROR": "Veuillez entrer un numéro de téléphone valide.",
-      "INVALID_FIRSTNAME_ERROR": "Veuillez entrer un prénom valide (lettres uniquement).",
-      "INVALID_LASTNAME_ERROR": "Veuillez entrer un nom valide (lettres uniquement).",
-      "INVALID_EMAIL_ERROR": "Ce champs ne doit pas être vide.",
-      "INVALID_PASSWORD_ERROR": "Le mot de passe doit contenir au moins une majuscule, au moins une minuscule, au moins un chiffre et un caractère spécial.",
-      "INVALID_CONFIRMATION_PASSWORD_ERROR": "Ce champs ne doit pas être vide.",
-      "INVALID_LOCATION_ERROR": "Ce champs ne doit pas être vide.",
-      "UNEXPECTED_ERROR": "Une erreur est survenue"
+        "notfoundPage": "404, Not found page"
+    },
+    "productDetail": {
+        "title": "Détails du produit"
+    },
+    "products": {
+        "title": "Catalogue produits",
+        "emptyList": "Il n'y a pas de produits !",
+        "fetchError": "An error occurred..."
+    },
+    "profile": {
+        "title": "Profil"
+    },
+    "home": {
+        "mainTitle": "Bienvenue sur le site Internet de notre association ApproAlternative Entr'Act",
+        "subTitle": "Plateforme logistique d'aide humanitaire et solidaire",
+        "memberLabel": "Espace Adhérent de l'association",
+        "adminLabel": "Espace Administrateur / Bénévole",
+        "notYetMember": "Pas encore adhérent ?",
+        "register": "Rejoignez-nous."
+    },
+    "cart": {
+        "title": "Panier"
     }
-  },
-  "wizard": {
-    "actions": {
-      "previousStep": "Etape précédente",
-      "nextStep": "Etape suivante",
-      "confirm": "Confirmer",
-      "returnToHome": "Retourner à l'accueil"
-    }
-  },
-  "common": {
-    "or": "OU",
-    "loading": "Loading..."
-  },
-  "error": {
-    "notfoundPage": "404, Not found page"
-  },
-  "productDetail": {
-    "title": "Détails du produit"
-  },
-  "products": {
-    "title": "Catalogue produits",
-    "emptyList": "Il n'y a pas de produits !",
-    "fetchError": "An error occurred..."
-  },
-  "profile": {
-    "title": "Profil"
-  },
-  "home": {
-    "mainTitle": "Bienvenue sur le site Internet de notre association ApproAlternative Entr'Act",
-    "subTitle": "Plateforme logistique d'aide humanitaire et solidaire",
-    "memberLabel": "Espace Adhérent de l'association",
-    "adminLabel": "Espace Administrateur / Bénévole",
-    "notYetMember": "Pas encore adhérent ?",
-    "register": "Rejoignez-nous."
-  },
-  "cart": {
-    "title": "Panier"
-  }
 }

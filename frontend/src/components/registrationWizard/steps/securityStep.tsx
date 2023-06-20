@@ -50,10 +50,10 @@ export const SecurityStep = () => {
 					defaultValue=""
 					control={control}
 					rules={{
-						required: t("form.error.EMPTY_ERROR"),
+						required: t("form.inputError.EMPTY_ERROR"),
 						pattern: {
 							value: FORM_PATTERN.EMAIL,
-							message: t("form.error.INVALID_EMAIL_ERROR"),
+							message: t("form.inputError.INVALID_EMAIL_ERROR"),
 						},
 					}}
 					render={({ field, formState }) => (
@@ -71,7 +71,7 @@ export const SecurityStep = () => {
 					defaultValue=""
 					control={control}
 					rules={{
-						required: t("form.error.EMPTY_ERROR"),
+						required: t("form.inputError.EMPTY_ERROR"),
 						minLength: {
 							value: 8,
 							message: t("form.password.rules.minLength", { number: 8 }),

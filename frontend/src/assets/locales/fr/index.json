@@ -52,7 +52,7 @@
       "confirmation": "Confirmation"
     },
     "postRegistrationInstruction": "Pour finaliser votre demande d'inscription, cliquez sur le lien que nous vous avons envoyé à",
-    "error": {
+    "inputError": {
       "EMPTY_ERROR": "Ce champs ne doit pas être vide.",
       "INVALID_PHONE_NUMBER_ERROR": "Veuillez entrer un numéro de téléphone valide.",
       "INVALID_FIRSTNAME_ERROR": "Veuillez entrer un prénom valide (lettres uniquement).",
@@ -60,8 +60,16 @@
       "INVALID_EMAIL_ERROR": "Ce champs ne doit pas être vide.",
       "INVALID_PASSWORD_ERROR": "Le mot de passe doit contenir au moins une majuscule, au moins une minuscule, au moins un chiffre et un caractère spécial.",
       "INVALID_CONFIRMATION_PASSWORD_ERROR": "Ce champs ne doit pas être vide.",
-      "INVALID_LOCATION_ERROR": "Ce champs ne doit pas être vide.",
-      "UNEXPECTED_ERROR": "Une erreur est survenue"
+      "INVALID_LOCATION_ERROR": "Ce champs ne doit pas être vide."
+    },
+    "notificationError": {
+      "OK": "OK",
+      "UNEXPECTED_ERROR": "Une erreur est survenue",
+      "CONNEXION_ERROR": "Erreur de connexion",
+      "INVALID_CREDENTIALS_USER": "Email non reconnu",
+      "INVALID_CREDENTIALS_PASSWORD": "Mot de passe incorrect",
+      "UNVERIFIED_EMAIL": "Vous n'avez pas cliqué sur le lien de validation que nous vous avons envoyé par mail",
+      "INVALID_TOKEN": "Session expirée"
     }
   },
   "wizard": {

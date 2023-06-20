@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { products$ } from "../../data/products";
+import { products$ } from "../../mocks/products";
 import { Product } from "../../types/product";
 
 export const useProducts = () => {

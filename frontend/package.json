@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "lint": "tsc --noEmit && eslint src/**/*.ts{,x} --cache --max-warnings=0",
     "lint:fix": "eslint src/**/*.ts{,x} --fix",
+    "prettier": "npx prettier -w ./src",
     "preview": "vite preview",
     "test": "jest"
   },

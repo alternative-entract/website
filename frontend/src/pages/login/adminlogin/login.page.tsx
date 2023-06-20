@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../utils/contexts/auth/context";
-import { userMock } from "../../../data/userMock";
+import { userMock } from "../../../mocks/userMock";
 import {
 	Button,
 	ButtonSize,

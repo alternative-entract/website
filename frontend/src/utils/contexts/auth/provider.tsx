@@ -1,6 +1,7 @@
 import { FC, ReactNode, useEffect, useState } from "react";
 import { AuthContext } from "./context";
-import { loginAPI } from "../../../api/auth/login";
+import { loginAPI } from "../../../data-access/bs-auth/login";
+import { CustomLoginError } from "../../../data-access/bs-auth/loginError";
 
 type AuthProviderProps = {
 	children: ReactNode;
@@ -30,9 +31,10 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
 			setToken(token);
 			storeToken(token);
 		} catch (error) {
-			if (error instanceof Error) {
-				throw error.message;
+			if (error instanceof CustomLoginError) {
+				throw new CustomLoginError(error.errorType);
 			}
+			throw error;
 		}
 	};
 

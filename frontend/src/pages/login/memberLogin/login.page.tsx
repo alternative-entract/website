@@ -20,6 +20,11 @@ import { Controller, useForm } from "react-hook-form";
 import { useState } from "react";
 import { useNotification } from "../../../utils/contexts/notification/context";
 
+interface AuthenticationParams {
+	email: string;
+	password: string;
+}
+
 const MemberLogin = () => {
 	const { login, isAuthenticated } = useAuth();
 	const { notify } = useNotification();
@@ -32,25 +37,28 @@ const MemberLogin = () => {
 		mode: "onSubmit",
 	});
 
-	const onAuthenticate = async ({
-		email,
-		password,
-	}: {
-		email: string;
-		password: string;
-	}) => {
+	const onAuthenticate = async ({ email, password }: AuthenticationParams) => {
 		try {
 			await login(email, password);
 		} catch (error) {
-			notify({
+			let errorMessage: string = error as string;
+
+			if (error instanceof Error && "errorType" in error) {
+				errorMessage = error.message;
+			}
+
+			const notification = {
 				type: NotificationType.error,
-				title: "Erreur de connexion",
-				description: error as string,
+				title: t("form.notificationError.CONNEXION_ERROR"),
+				description: errorMessage,
 				dismissMode: {
 					manually: true,
 					onPageChange: true,
+					afterTimeout: 3000,
 				},
-			});
+			};
+
+			notify(notification);
 		}
 	};
 
@@ -72,7 +80,7 @@ const MemberLogin = () => {
 								name="email"
 								defaultValue=""
 								control={control}
-								rules={{ required: t("form.error.EMPTY_ERROR") }}
+								rules={{ required: t("form.inputError.EMPTY_ERROR") }}
 								render={({ field, formState }) => (
 									<TextField
 										label={t("form.emailLabel")}
@@ -86,7 +94,7 @@ const MemberLogin = () => {
 								name="password"
 								defaultValue=""
 								control={control}
-								rules={{ required: t("form.error.EMPTY_ERROR") }}
+								rules={{ required: t("form.inputError.EMPTY_ERROR") }}
 								render={({ field, formState }) => (
 									<PasswordField
 										label={t("form.password.label")}

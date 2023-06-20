@@ -36,10 +36,10 @@ export const ContactStep = () => {
 					defaultValue=""
 					control={control}
 					rules={{
-						required: t("form.error.EMPTY_ERROR"),
+						required: t("form.inputError.EMPTY_ERROR"),
 						pattern: {
 							value: FORM_PATTERN.TEXT,
-							message: t("form.error.INVALID_FIRSTNAME_ERROR"),
+							message: t("form.inputError.INVALID_FIRSTNAME_ERROR"),
 						},
 					}}
 					render={({ field, formState }) => (
@@ -57,10 +57,10 @@ export const ContactStep = () => {
 					defaultValue=""
 					control={control}
 					rules={{
-						required: t("form.error.EMPTY_ERROR"),
+						required: t("form.inputError.EMPTY_ERROR"),
 						pattern: {
 							value: FORM_PATTERN.TEXT,
-							message: t("form.error.INVALID_LASTNAME_ERROR"),
+							message: t("form.inputError.INVALID_LASTNAME_ERROR"),
 						},
 					}}
 					render={({ field, formState }) => (
@@ -78,10 +78,10 @@ export const ContactStep = () => {
 					control={control}
 					defaultValue=""
 					rules={{
-						required: t("form.error.EMPTY_ERROR"),
+						required: t("form.inputError.EMPTY_ERROR"),
 						pattern: {
 							value: FORM_PATTERN.PHONE_NUMBER,
-							message: t("form.error.INVALID_PHONE_NUMBER_ERROR"),
+							message: t("form.inputError.INVALID_PHONE_NUMBER_ERROR"),
 						},
 					}}
 					render={({ field, formState }) => (

@@ -34,7 +34,7 @@ export const AssociationInfoStep = () => {
 					name={ASSOCIATION_FORM_KEYS.brand}
 					defaultValue=""
 					control={control}
-					rules={{ required: t("form.error.EMPTY_ERROR") }}
+					rules={{ required: t("form.inputError.EMPTY_ERROR") }}
 					render={({ field, formState }) => (
 						<TextField
 							label={t("form.brandLabel")}
@@ -49,7 +49,7 @@ export const AssociationInfoStep = () => {
 					name={ASSOCIATION_FORM_KEYS.location}
 					defaultValue=""
 					control={control}
-					rules={{ required: t("form.error.EMPTY_ERROR") }}
+					rules={{ required: t("form.inputError.EMPTY_ERROR") }}
 					render={({ field, formState }) => (
 						<TextField
 							label={t("form.locationLabel")}
@@ -65,10 +65,10 @@ export const AssociationInfoStep = () => {
 					defaultValue=""
 					control={control}
 					rules={{
-						required: t("form.error.EMPTY_ERROR"),
+						required: t("form.inputError.EMPTY_ERROR"),
 						pattern: {
 							value: FORM_PATTERN.PHONE_NUMBER,
-							message: t("form.error.INVALID_PHONE_NUMBER_ERROR"),
+							message: t("form.inputError.INVALID_PHONE_NUMBER_ERROR"),
 						},
 					}}
 					render={({ field, formState }) => (

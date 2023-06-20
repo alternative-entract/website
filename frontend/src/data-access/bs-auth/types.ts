@@ -47,3 +47,8 @@ export type LoginApiResponse = {
     msg?: LoginErrorKeys;
     user?: AuthUser;
 };
+
+export type LoginReply = {
+    token?: string;
+    errorMessage?: LoginErrorKeys;
+};

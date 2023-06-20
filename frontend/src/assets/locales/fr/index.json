@@ -64,6 +64,7 @@
         },
         "notificationError": {
             "OK": "OK",
+            "SERVOR_ERROR": "Impossible de contacter le serveur",
             "UNEXPECTED_ERROR": "Une erreur est survenue",
             "CONNEXION_ERROR": "Erreur de connexion",
             "INVALID_CREDENTIALS_USER": "Email non reconnu",

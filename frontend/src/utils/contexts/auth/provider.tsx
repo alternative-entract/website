@@ -1,7 +1,7 @@
 import { FC, ReactNode, useEffect, useState } from "react";
 import { AuthContext } from "./context";
 import { loginAPI } from "../../../data-access/bs-auth/login";
-import { CustomLoginError } from "../../../data-access/bs-auth/loginError";
+import { loginErrorTranslated } from "../../../data-access/bs-auth/types";
 
 type AuthProviderProps = {
     children: ReactNode;
@@ -24,17 +24,17 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
         localStorage.setItem(TOKEN_KEY, tokenToStore);
     };
 
-    const login = async (email: string, password: string) => {
-        try {
-            const { token } = await loginAPI(email, password);
-            setIsAuthenticated(!!token);
+    const login = async (email: string, password: string): Promise<void> => {
+        const { token, errorMessage } = await loginAPI(email, password);
+
+        if (errorMessage) {
+            throw new Error(loginErrorTranslated[errorMessage]);
+        }
+
+        if (token) {
+            setIsAuthenticated(true);
             setToken(token);
             storeToken(token);
-        } catch (error) {
-            if (error instanceof CustomLoginError) {
-                throw new CustomLoginError(error.errorType);
-            }
-            throw error;
         }
     };
 

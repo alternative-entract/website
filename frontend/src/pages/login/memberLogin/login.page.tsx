@@ -44,24 +44,19 @@ const MemberLogin = () => {
         try {
             await login(email, password);
         } catch (error) {
-            let errorMessage: string = error as string;
-
-            if (error instanceof Error && "errorType" in error) {
-                errorMessage = error.message;
+            if (error instanceof Error) {
+                const notification = {
+                    type: NotificationType.error,
+                    title: t("form.notificationError.CONNEXION_ERROR"),
+                    description: error.message,
+                    dismissMode: {
+                        manually: true,
+                        onPageChange: true,
+                        afterTimeout: 3000,
+                    },
+                };
+                notify(notification);
             }
-
-            const notification = {
-                type: NotificationType.error,
-                title: t("form.notificationError.CONNEXION_ERROR"),
-                description: errorMessage,
-                dismissMode: {
-                    manually: true,
-                    onPageChange: true,
-                    afterTimeout: 3000,
-                },
-            };
-
-            notify(notification);
         }
     };
 

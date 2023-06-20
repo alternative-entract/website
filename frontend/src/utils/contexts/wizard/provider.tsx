@@ -1,27 +1,20 @@
-import {useCallback, useEffect, useMemo, useState} from "react";
-import {WizardContextType, WizardProps} from "./types";
-import {WizardContext} from "./context";
-import {useNavigateToHome} from "../../../features/navigation/useNavigateTo";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { WizardContextType, WizardProps } from "./types";
+import { WizardContext } from "./context";
+import { useNavigateToHome } from "../../../features/navigation/useNavigateTo";
 
-export const WizardProvider = ({
-   children,
-   onFinish,
-   header,
-}: WizardProps) => {
+export const WizardProvider = ({ children, onFinish, header }: WizardProps) => {
     const [currentStep, setCurrentStep] = useState(0);
     const [wizardData, setWizardData] = useState<Record<string, unknown>>({});
-    const navigateToHome = useNavigateToHome()
+    const navigateToHome = useNavigateToHome();
 
-    const stepsCount = useMemo(
-        () => children.length,
-        [children]
-    );
+    const stepsCount = useMemo(() => children.length, [children]);
     const isFirstStep = currentStep === 0;
     const isLastStep = currentStep + 1 === stepsCount - 1;
 
     const previousStep = useCallback(() => {
         if (isFirstStep) {
-            navigateToHome()
+            navigateToHome();
         }
         setCurrentStep((previousValue) => previousValue - 1);
     }, [isFirstStep, navigateToHome]);
@@ -29,7 +22,10 @@ export const WizardProvider = ({
     const nextStep = useCallback(
         (newData: Record<string, unknown>, merge = true) => {
             if (merge) {
-                setWizardData((previousData) => ({ ...previousData, ...newData }));
+                setWizardData((previousData) => ({
+                    ...previousData,
+                    ...newData,
+                }));
             } else {
                 setWizardData({ ...newData });
             }
@@ -79,9 +75,7 @@ export const WizardProvider = ({
             <div className="flex flex-col gap-16 mx-8">
                 {header}
                 <div className="flex justify-center">
-									<div className="md:w-1/2">
-										{children[currentStep]}
-									</div>
+                    <div className="md:w-1/2">{children[currentStep]}</div>
                 </div>
             </div>
         </WizardContext.Provider>

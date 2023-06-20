@@ -1,9 +1,9 @@
-import {FC} from "react";
-import {BreadcrumbItemData } from "./breadcrumb.type";
-import {BreadcrumbItem} from "./components/breadcrumbItem.component";
+import { FC } from "react";
+import { BreadcrumbItemData } from "./breadcrumb.type";
+import { BreadcrumbItem } from "./components/breadcrumbItem.component";
 
 interface IBreadCrumbs {
-    items: BreadcrumbItemData[]
+    items: BreadcrumbItemData[];
 }
 
 export const Breadcrumb: FC<IBreadCrumbs> = ({ items }) => {
@@ -15,5 +15,5 @@ export const Breadcrumb: FC<IBreadCrumbs> = ({ items }) => {
                 ))}
             </ol>
         </nav>
-    )
-}
+    );
+};

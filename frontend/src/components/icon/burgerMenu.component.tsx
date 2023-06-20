@@ -1,4 +1,4 @@
-export const BurgerMenuIcon = () =>
+export const BurgerMenuIcon = () => (
     <svg
         className="w-6 h-6"
         aria-hidden="true"
@@ -12,3 +12,4 @@ export const BurgerMenuIcon = () =>
             clipRule="evenodd"
         />
     </svg>
+);

@@ -1,45 +1,68 @@
-import {FC, ReactNode, useEffect, useReducer, useState} from 'react';
+import { FC, ReactNode, useEffect, useState } from "react";
 import { AuthContext } from "./context";
-import {AuthActionType, authReducer} from "./reducer";
-import {userMock} from "../../../userMock";
-import {useNavigateToApp} from "../../../features/navigation/useNavigateTo";
+import { loginAPI } from "../../../data-access/bs-auth/login";
+import { CustomLoginError } from "../../../data-access/bs-auth/loginError";
 
 type AuthProviderProps = {
     children: ReactNode;
 };
 
+const TOKEN_KEY = "userToken";
+
 export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
-    const navigateToApp = useNavigateToApp()
-    // const navigateToRoot = useNavigateToRoot()
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [token, setToken] = useState<string | null>(null);
 
-    const [state, dispatch] = useReducer(authReducer, {
-        isAuthenticated: false,
-        user: null,
-    });
+    const getStoredItem = (token: string) => localStorage.getItem(token);
+    const removeStoredItem = (token: string) => localStorage.removeItem(token);
 
-    const login = (email: string) => {
-        dispatch({ type: AuthActionType.LOGIN, user: userMock })
-        localStorage.setItem('userEmail', email)
-        navigateToApp()
-    }
+    const storeToken = (tokenToStore: string) => {
+        if (getStoredItem(TOKEN_KEY)) {
+            removeStoredItem(TOKEN_KEY);
+        }
+        localStorage.setItem(TOKEN_KEY, tokenToStore);
+    };
+
+    const login = async (email: string, password: string) => {
+        try {
+            const { token } = await loginAPI(email, password);
+            setIsAuthenticated(!!token);
+            setToken(token);
+            storeToken(token);
+        } catch (error) {
+            if (error instanceof CustomLoginError) {
+                throw new CustomLoginError(error.errorType);
+            }
+            throw error;
+        }
+    };
 
     const logout = () => {
-        dispatch({ type: AuthActionType.LOGOUT })
-        localStorage.removeItem("userEmail")
-        // navigateToRoot()
-    }
+        removeStoredItem(TOKEN_KEY);
+        setIsAuthenticated(false);
+        setToken(null);
+    };
 
     useEffect(() => {
-        const loggedInUser = localStorage.getItem("userEmail");
-        if (loggedInUser) {
-            dispatch({ type: AuthActionType.LOGIN, user: userMock })
+        const existingToken = getStoredItem(TOKEN_KEY);
+        if (existingToken) {
+            setIsAuthenticated(true);
+            setToken(existingToken);
         }
-        setLoading(false)
+        setLoading(false);
     }, []);
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated: state.isAuthenticated, login, isLoading: loading, logout, user: state.user }}>
+        <AuthContext.Provider
+            value={{
+                isAuthenticated,
+                login,
+                isLoading: loading,
+                logout,
+                token,
+            }}
+        >
             {children}
         </AuthContext.Provider>
     );

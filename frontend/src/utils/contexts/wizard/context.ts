@@ -1,5 +1,5 @@
-import {createContext} from "react";
-import {WizardContextType} from "./types";
+import { createContext } from "react";
+import { WizardContextType } from "./types";
 
 export const WizardContext = createContext<WizardContextType>({
     currentStepIndex: 0,

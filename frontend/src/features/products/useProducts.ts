@@ -1,6 +1,6 @@
-import {useCallback, useEffect, useState} from 'react';
-import { products$ } from '../../data/products';
-import {Product} from "../../types/product";
+import { useCallback, useEffect, useState } from "react";
+import { products$ } from "../../mocks/products";
+import { Product } from "../../types/product";
 
 export const useProducts = () => {
     const [products, setProducts] = useState<Product[]>([]);
@@ -27,7 +27,9 @@ export const useProducts = () => {
         setProducts((prevState) =>
             prevState.filter(
                 (product) =>
-                    !productsToRemove.find((productToRemove) => productToRemove.id === product.id)
+                    !productsToRemove.find(
+                        (productToRemove) => productToRemove.id === product.id
+                    )
             )
         );
     }, []);

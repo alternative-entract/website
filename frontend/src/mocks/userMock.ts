@@ -1,4 +1,4 @@
-import {User, UserRole} from './types/user'
+import { User, UserRole } from "../types/user";
 
 /** Mocks data used to login */
 export const userMock: User = {
@@ -10,5 +10,5 @@ export const userMock: User = {
     passwordTokenExpirationDate: new Date(),
     role: UserRole.USER,
     verificationToken: "verification-token",
-    verified: new Date()
-}
+    verified: new Date(),
+};

@@ -1,32 +1,34 @@
-import {Controller, useForm} from 'react-hook-form';
-import {TextField} from "../../input";
-import {Form} from "../../form";
+import { Controller, useForm } from "react-hook-form";
+import { TextField } from "../../input";
+import { Form } from "../../form";
 import {
-	CONTACT_FORM_KEYS,
-	ContactInfo,
-	FORM_PATTERN, RegisterFormData
+    CONTACT_FORM_KEYS,
+    ContactInfo,
+    FORM_PATTERN,
+    RegisterFormData,
 } from "../registrationWizard.types";
-import {WizardStepperFooter} from "../../wizard";
-import {useWizard} from "../../../utils/contexts/wizard/useWizard";
-import {t} from "../../../utils/i18n/i18n";
+import { WizardStepperFooter } from "../../wizard";
+import { useWizard } from "../../../utils/contexts/wizard/useWizard";
+import { t } from "../../../utils/i18n/i18n";
 
 export const ContactStep = () => {
-    const { previousStep, nextStep, wizardData, isFirstStep, isLastStep } = useWizard<RegisterFormData>();
+    const { previousStep, nextStep, wizardData, isFirstStep, isLastStep } =
+        useWizard<RegisterFormData>();
 
-    const {
-        control,
-        handleSubmit,
-    } = useForm({ defaultValues: wizardData.contactInfo as ContactInfo, mode: "onSubmit" });
+    const { control, handleSubmit } = useForm({
+        defaultValues: wizardData.contactInfo as ContactInfo,
+        mode: "onSubmit",
+    });
 
-    const handlePreviousAction = () => previousStep()
+    const handlePreviousAction = () => previousStep();
 
     const saveData = (data: ContactInfo) =>
-        nextStep({contactInfo: data}, true)
+        nextStep({ contactInfo: data }, true);
 
     return (
         <div className="flex flex-col w-full items-center gap-16">
             <h1 className="text-lg font-medium leading-none text-gray-900">
-                {t("registration.contactInfo.title")}
+                {t("form.title.contactInfo")}
             </h1>
 
             <Form onSubmit={handleSubmit(saveData)}>
@@ -35,20 +37,22 @@ export const ContactStep = () => {
                     defaultValue=""
                     control={control}
                     rules={{
-                        required: t("registration.error.EMPTY_ERROR"),
+                        required: t("form.inputError.EMPTY_ERROR"),
                         pattern: {
                             value: FORM_PATTERN.TEXT,
-                            message: t("registration.error.INVALID_FIRSTNAME_ERROR"),
+                            message: t(
+                                "form.inputError.INVALID_FIRSTNAME_ERROR"
+                            ),
                         },
                     }}
-                    render={({field, formState}) =>
+                    render={({ field, formState }) => (
                         <TextField
-                            label={t("registration.contactInfo.firstName.label")}
-                            placeholder={t("registration.contactInfo.firstName.placeholder")}
+                            label={t("form.firstNameLabel")}
+                            placeholder={t("form.firstNamePlaceholder")}
                             error={formState.errors.firstName}
                             {...field}
                         />
-                    }
+                    )}
                 />
 
                 <Controller
@@ -56,20 +60,22 @@ export const ContactStep = () => {
                     defaultValue=""
                     control={control}
                     rules={{
-                        required: t("registration.error.EMPTY_ERROR"),
+                        required: t("form.inputError.EMPTY_ERROR"),
                         pattern: {
                             value: FORM_PATTERN.TEXT,
-                            message: t("registration.error.INVALID_LASTNAME_ERROR"),
+                            message: t(
+                                "form.inputError.INVALID_LASTNAME_ERROR"
+                            ),
                         },
                     }}
-                    render={({field, formState}) =>
+                    render={({ field, formState }) => (
                         <TextField
-                            label={t("registration.contactInfo.lastName.label")}
-                            placeholder={t("registration.contactInfo.lastName.placeholder")}
+                            label={t("form.lastNameLabel")}
+                            placeholder={t("form.lastNamePlaceholder")}
                             error={formState.errors.lastName}
                             {...field}
                         />
-                    }
+                    )}
                 />
 
                 <Controller
@@ -77,20 +83,22 @@ export const ContactStep = () => {
                     control={control}
                     defaultValue=""
                     rules={{
-                        required: t("registration.error.EMPTY_ERROR"),
+                        required: t("form.inputError.EMPTY_ERROR"),
                         pattern: {
                             value: FORM_PATTERN.PHONE_NUMBER,
-                            message: t("registration.error.INVALID_PHONE_NUMBER_ERROR"),
-                        }
+                            message: t(
+                                "form.inputError.INVALID_PHONE_NUMBER_ERROR"
+                            ),
+                        },
                     }}
-                    render={({field, formState}) =>
+                    render={({ field, formState }) => (
                         <TextField
-                            label={t("registration.contactInfo.phoneNumber.label")}
-                            placeholder={t("registration.contactInfo.phoneNumber.placeholder")}
+                            label={t("form.phoneNumberLabel")}
+                            placeholder={t("form.phoneNumberPlaceholder")}
                             error={formState.errors.phoneNumber}
                             {...field}
                         />
-                    }
+                    )}
                 />
 
                 <WizardStepperFooter

@@ -1,5 +1,5 @@
-import i18n from 'i18next';
-import translationFR from '../../assets/locales/fr/index.json';
+import i18n from "i18next";
+import translationFR from "../../assets/locales/fr/index.json";
 
 const resources = {
     fr: {
@@ -7,7 +7,7 @@ const resources = {
     },
 };
 
-type Path<T, Prev = ''> = {
+type Path<T, Prev = ""> = {
     [K in keyof T]: T[K] extends string
         ? `${string & Prev}${string & K}`
         : Path<T[K], `${string & Prev}${string & K}.`>;
@@ -18,11 +18,11 @@ export type I18NPath = Path<typeof translationFR>;
 type OptionValue = Scalar;
 
 export const t = (key: I18NPath, options?: Record<string, OptionValue>) =>
-    i18n.t(key, options ?? {})
+    i18n.t(key, options ?? {});
 
 i18n.init({
     resources,
-    lng: 'fr',
+    lng: "fr",
     returnEmptyString: true,
     interpolation: {
         escapeValue: false,

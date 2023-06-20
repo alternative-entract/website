@@ -1,9 +1,9 @@
-import {FC, FormEvent, ReactNode} from "react";
+import { FC, FormEvent, ReactNode } from "react";
 
 interface IForm {
-    onSubmit: (event:  FormEvent) => void
-    noValidate?: boolean
-    children: ReactNode
+    onSubmit: (event: FormEvent) => void;
+    noValidate?: boolean;
+    children: ReactNode;
 }
 
 export const Form: FC<IForm> = ({ onSubmit, noValidate, children }) => (
@@ -15,4 +15,4 @@ export const Form: FC<IForm> = ({ onSubmit, noValidate, children }) => (
     >
         {children}
     </form>
-)
+);

@@ -1,8 +1,7 @@
-import {render, fireEvent} from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { INavbar, Navbar } from "./navbar.component";
 
 describe("Navbar", () => {
-
     const navbarProps: INavbar = {
         logo: {
             src: "logo.png",
@@ -15,14 +14,12 @@ describe("Navbar", () => {
         ],
         isMobileMenuOpen: false,
         toggleMobileMenu: jest.fn(),
-    }
+    };
 
     it("renders the logo, title, and menu items", () => {
-        const { logo, items} = navbarProps
+        const { logo, items } = navbarProps;
 
-        const { getByAltText, getByText } = render(
-            <Navbar {...navbarProps} />
-        );
+        const { getByAltText, getByText } = render(<Navbar {...navbarProps} />);
 
         const logoElement = getByAltText(logo.alt);
         expect(logoElement).toBeInTheDocument();
@@ -35,11 +32,9 @@ describe("Navbar", () => {
     });
 
     it("calls the onClick function when menu item is clicked", () => {
-        const { items} = navbarProps
+        const { items } = navbarProps;
 
-        const { getByText } = render(
-            <Navbar {...navbarProps} />
-        );
+        const { getByText } = render(<Navbar {...navbarProps} />);
 
         items.forEach((item) => {
             const menuItem = getByText(item.label);
@@ -50,9 +45,7 @@ describe("Navbar", () => {
 
     it("toggles the mobile menu when button is clicked", () => {
         const toggleMobileMenu = navbarProps.toggleMobileMenu;
-        const { getByRole } = render(
-            <Navbar {...navbarProps} />
-        );
+        const { getByRole } = render(<Navbar {...navbarProps} />);
 
         const button = getByRole("button");
         fireEvent.click(button);

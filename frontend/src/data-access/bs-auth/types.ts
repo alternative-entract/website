@@ -22,15 +22,17 @@ export type AuthUser = {
 };
 
 export enum LoginErrorKeys {
-    OK = "OK",
-    INVALID_CREDENTIALS_USER = "Invalid Credentials user",
-    INVALID_CREDENTIALS_PASSWORD = "Invalid Credentials password",
-    UNVERIFIED_EMAIL = "Please verify your email",
-    INVALID_TOKEN = "Invalid Credentials",
+    BAD_REQUEST_ERROR = "BAD_REQUEST_ERROR",
+    INVALID_CREDENTIALS_USER = "INVALID_CREDENTIALS_USER",
+    INVALID_CREDENTIALS_PASSWORD = "INVALID_CREDENTIALS_PASSWORD",
+    UNVERIFIED_EMAIL = "UNVERIFIED_EMAIL",
+    INVALID_TOKEN = "INVALID_TOKEN",
 }
 
 export const loginErrorTranslated: Record<LoginErrorKeys, string> = {
-    [LoginErrorKeys.OK]: "OK",
+    [LoginErrorKeys.BAD_REQUEST_ERROR]: t(
+        "form.notificationError.BAD_REQUEST_ERROR"
+    ),
     [LoginErrorKeys.INVALID_CREDENTIALS_USER]: t(
         "form.notificationError.INVALID_CREDENTIALS_USER"
     ),

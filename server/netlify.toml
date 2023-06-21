@@ -1,0 +1,7 @@
+[build]
+# This will be run the site build
+command = "yarn build"
+# This is the directory is publishing to netlify's CDN
+publish = "dist"
+# functions build directory
+functions = "functions-build"

@@ -1,22 +1,32 @@
-const { StatusCodes } = require("http-status-codes");
-const Product = require("../models/Product");
+const { StatusCodes } = require('http-status-codes')
+const Product = require('../models/Product')
 const CustomError = require('../errors')
-const path = require('path')
 const cloudinary = require('cloudinary').v2
 const fs = require('fs')
+
+const connectDB = require('../db/connect')
+
 const createProduct = async (req, res) => {
   req.body.user = req.user.userId
+
+  await connectDB()
+
   const product = await Product.create(req.body)
   res.status(StatusCodes.CREATED).json({ product })
 }
 
 const getAllProducts = async (req, res) => {
+  await connectDB()
+
   const products = await Product.find({})
   res.status(StatusCodes.OK).json({ products, count: products.length })
 }
 
 const getSingleProduct = async (req, res) => {
   const { id: ProductId } = req.params
+
+  await connectDB()
+
   const product = await Product.findOne({ _id: ProductId })
   if (!product) {
     throw new CustomError.BadRequestError(` ${ProductId}`)
@@ -26,6 +36,9 @@ const getSingleProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
   const { id: ProductId } = req.params
+
+  await connectDB()
+
   const product = await Product.findOneAndUpdate({ _id: ProductId }, req.body, {
     new: true,
     runValidators: true,
@@ -38,6 +51,9 @@ const updateProduct = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
   const { id: ProductId } = req.params
+
+  await connectDB()
+
   const product = await Product.findByIdAndDelete({ _id: ProductId })
   if (!product) {
     throw new CustomError.BadRequestError(` ${ProductId}`)
@@ -110,7 +126,6 @@ const uploadImage = async (req, res) => {
   return res.status(StatusCodes.OK).json({ image: { src: result.secure_url } })
 }
 
-
 module.exports = {
   createProduct,
   getAllProducts,
@@ -118,4 +133,4 @@ module.exports = {
   updateProduct,
   deleteProduct,
   uploadImage,
-};
+}

@@ -63,7 +63,7 @@
             "INVALID_LOCATION_ERROR": "Ce champs ne doit pas être vide."
         },
         "notificationError": {
-            "OK": "OK",
+            "BAD_REQUEST_ERROR": "Requête invalide",
             "SERVOR_ERROR": "Impossible de contacter le serveur",
             "UNEXPECTED_ERROR": "Une erreur est survenue",
             "CONNEXION_ERROR": "Erreur de connexion",

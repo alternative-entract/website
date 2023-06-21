@@ -1,5 +1,4 @@
 const {StatusCodes} = require('http-status-codes')
-const jwt = require('jsonwebtoken');
 const crypto = require('crypto')
 
 const User = require('../models/User')
@@ -70,21 +69,21 @@ const login = async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    throw new CustomError.BadRequestError("Please provide email and password");
+    throw new CustomError.BadRequestError("BAD_REQUEST_ERROR");
   }
   const user = await User.findOne({ email });
 
   if (!user) {
-    throw new CustomError.UnauthenticatedError("Invalid Credentials user");
+    throw new CustomError.UnauthenticatedError("INVALID_CREDENTIALS_USER");
   }
 
-  const isPasswordCorrect = user.comparePassword(password);
+  const isPasswordCorrect = await user.comparePassword(password);
 
   if (!isPasswordCorrect) {
-    throw new CustomError.UnauthenticatedError("Invalid Credentials password");
+    throw new CustomError.UnauthenticatedError("INVALID_CREDENTIALS_PASSWORD");
   }
   if (!user.isVerified) {
-    throw new CustomError.UnauthenticatedError("Please verify your email");
+    throw new CustomError.UnauthenticatedError("UNVERIFIED_EMAIL");
   }
   const tokenUser = createTokenUser(user);
 
@@ -96,7 +95,7 @@ const login = async (req, res) => {
   if (existingToken) {
     const { isValid } = existingToken;
     if (!isValid) {
-      throw new CustomError.UnauthenticatedError("Invalid Credentials");
+      throw new CustomError.UnauthenticatedError("INVALID_TOKEN");
     }
     refreshToken = existingToken.refreshToken;
     attachCookiesToResponse({ res, user: tokenUser, refreshToken });

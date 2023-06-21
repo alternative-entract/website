@@ -21,7 +21,7 @@ export type AuthUser = {
     role: UserRole;
 };
 
-export enum LoginErrorKeys {
+export enum LoginErrorStatus {
     BAD_REQUEST_ERROR = "BAD_REQUEST_ERROR",
     INVALID_CREDENTIALS_USER = "INVALID_CREDENTIALS_USER",
     INVALID_CREDENTIALS_PASSWORD = "INVALID_CREDENTIALS_PASSWORD",
@@ -29,28 +29,28 @@ export enum LoginErrorKeys {
     INVALID_TOKEN = "INVALID_TOKEN",
 }
 
-export const loginErrorTranslated: Record<LoginErrorKeys, string> = {
-    [LoginErrorKeys.BAD_REQUEST_ERROR]: t(
+export const loginErrorTranslated: Record<LoginErrorStatus, string> = {
+    [LoginErrorStatus.BAD_REQUEST_ERROR]: t(
         "form.notificationError.BAD_REQUEST_ERROR"
     ),
-    [LoginErrorKeys.INVALID_CREDENTIALS_USER]: t(
+    [LoginErrorStatus.INVALID_CREDENTIALS_USER]: t(
         "form.notificationError.INVALID_CREDENTIALS_USER"
     ),
-    [LoginErrorKeys.INVALID_CREDENTIALS_PASSWORD]: t(
+    [LoginErrorStatus.INVALID_CREDENTIALS_PASSWORD]: t(
         "form.notificationError.INVALID_CREDENTIALS_PASSWORD"
     ),
-    [LoginErrorKeys.UNVERIFIED_EMAIL]: t(
+    [LoginErrorStatus.UNVERIFIED_EMAIL]: t(
         "form.notificationError.UNVERIFIED_EMAIL"
     ),
-    [LoginErrorKeys.INVALID_TOKEN]: t("form.notificationError.INVALID_TOKEN"),
+    [LoginErrorStatus.INVALID_TOKEN]: t("form.notificationError.INVALID_TOKEN"),
 };
 
 export type LoginApiResponse = {
-    msg?: LoginErrorKeys;
+    msg?: LoginErrorStatus;
     user?: AuthUser;
 };
 
 export type LoginReply = {
     token?: string;
-    errorMessage?: LoginErrorKeys;
+    errorMessage?: LoginErrorStatus;
 };

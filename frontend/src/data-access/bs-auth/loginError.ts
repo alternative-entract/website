@@ -1,4 +1,4 @@
-import { LoginErrorKeys, loginErrorTranslated } from "./types";
+import { LoginErrorStatus, loginErrorTranslated } from "./types";
 
 interface ILoginError {
     readonly errorType: keyof typeof loginErrorTranslated;
@@ -6,7 +6,7 @@ interface ILoginError {
 }
 
 export class CustomLoginError implements ILoginError {
-    constructor(public readonly errorType: LoginErrorKeys) {
+    constructor(public readonly errorType: LoginErrorStatus) {
         this.message = loginErrorTranslated[errorType];
     }
 

@@ -1,5 +1,4 @@
 const {StatusCodes} = require('http-status-codes')
-const jwt = require('jsonwebtoken');
 const crypto = require('crypto')
 
 const User = require('../models/User')
@@ -78,7 +77,7 @@ const login = async (req, res) => {
     throw new CustomError.UnauthenticatedError("INVALID_CREDENTIALS_USER");
   }
 
-  const isPasswordCorrect = user.comparePassword(password);
+  const isPasswordCorrect = await user.comparePassword(password);
 
   if (!isPasswordCorrect) {
     throw new CustomError.UnauthenticatedError("INVALID_CREDENTIALS_PASSWORD");

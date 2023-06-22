@@ -1,6 +1,6 @@
-const crypto = require("crypto");
+const crypto = require('crypto')
 
 const hashString = (string) =>
-  crypto.createHash("md5").update(string).digest("hex");
+  crypto.createHash('md5').update(string).digest('hex')
 
-module.exports = hashString;
+module.exports = hashString

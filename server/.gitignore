@@ -1,2 +1,8 @@
-/node_modules
+node_modules/
+functions/
+build/
+dist/
 .env
+
+# Local Netlify folder
+.netlify

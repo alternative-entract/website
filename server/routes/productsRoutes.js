@@ -1,9 +1,9 @@
-const express = require("express");
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 const {
   authenticateUser,
   authorizePermissions,
-} = require("../middleware/authentication");
+} = require('../middleware/authentication')
 const {
   createProduct,
   getAllProducts,
@@ -11,21 +11,21 @@ const {
   updateProduct,
   deleteProduct,
   uploadImage,
-} = require("../controllers/productController");
+} = require('../controllers/productController')
 
 router
-  .route("/")
-  .post([authenticateUser, authorizePermissions("admin")], createProduct)
-  .get(getAllProducts);
+  .route('/')
+  .post([authenticateUser, authorizePermissions('admin')], createProduct)
+  .get(getAllProducts)
 
 router
   .route('/upload-image')
   .post([authenticateUser, authorizePermissions('admin')], uploadImage)
-  
-router
-  .route("/:id")
-  .get(getSingleProduct)
-  .patch([authenticateUser, authorizePermissions("admin")], updateProduct)
-  .delete([authenticateUser, authorizePermissions("admin")], deleteProduct);
 
-module.exports = router;
+router
+  .route('/:id')
+  .get(getSingleProduct)
+  .patch([authenticateUser, authorizePermissions('admin')], updateProduct)
+  .delete([authenticateUser, authorizePermissions('admin')], deleteProduct)
+
+module.exports = router

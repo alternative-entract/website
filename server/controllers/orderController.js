@@ -4,12 +4,18 @@ const Product = require('../models/Product')
 const Order = require('../models/Order')
 const { checkPermissions } = require('../utils')
 
+const connectDB = require('../db/connect')
+
 const getAllOrders = async (req, res) => {
+  await connectDB()
+
   const orders = await Order.find({})
   res.status(StatusCodes.OK).json({ orders, count: orders.length })
 }
 
 const getSingleOrder = async (req, res) => {
+  await connectDB()
+
   const { id: orderId } = req.params
   const order = await Order.findOne({ _id: orderId })
   if (!order) {
@@ -20,6 +26,8 @@ const getSingleOrder = async (req, res) => {
 }
 
 const getCurrentUserOrders = async (req, res) => {
+  await connectDB()
+
   const orders = await Order.find({ user: req.user.userId })
   res.status(StatusCodes.OK).json({ orders, count: orders.length })
 }
@@ -34,6 +42,9 @@ const createOrder = async (req, res) => {
   }
   let orderItems = []
   let subTotal = 0
+
+  await connectDB()
+
   for (const item of cartItems) {
     const dbProduct = await Product.findOne({ _id: item.product })
     if (!dbProduct) {
@@ -70,6 +81,9 @@ const createOrder = async (req, res) => {
 
 const updateOrder = async (req, res) => {
   const { id: orderId } = req.params
+
+  await connectDB()
+
   const order = await Order.findOne({ _id: orderId })
   if (!order) {
     throw new CustomError.NotFoundError(`No order with id ${orderId}`)

@@ -17,6 +17,7 @@ const orderRouter = require('../src/routes/orderRoutes')
 
 //middleware
 const notFoundMiddleware = require('../src/middleware/not-found')
+const hostValidationMiddleware = require('../src/middleware/hostValidation')
 const errorHandler = require('../src/middleware/error-handler')
 const {
   JWT_SECRET,
@@ -49,6 +50,7 @@ app.use(fileUpload({ useTempFiles: true }))
 
 app.use('/.netlify/functions/users', orderRouter)
 app.use(notFoundMiddleware)
+app.use(hostValidationMiddleware)
 app.use(errorHandler)
 
 module.exports.handler = serverless(app)

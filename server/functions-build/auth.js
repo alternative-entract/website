@@ -13,17 +13,18 @@ const cors = require('cors')
 const mongoSanitize = require('express-mongo-sanitize')
 
 // routes
-const authRouter = require('../routes/authRoutes')
+const authRouter = require('../src/routes/authRoutes')
 
 //middleware
-const notFoundMiddleware = require('../middleware/not-found')
-const errorHandler = require('../middleware/error-handler')
+const notFoundMiddleware = require('../src/middleware/not-found')
+const hostValidationMiddleware = require('../src/middleware/hostValidation')
+const errorHandler = require('../src/middleware/error-handler')
 const {
   JWT_SECRET,
   CLOUD_NAME,
   CLOUD_API_KEY,
   CLOUD_API_SECRET,
-} = require('../utils/settings')
+} = require('../src/utils/settings')
 
 // upload file with cloudinary use V2
 const cloudinary = require('cloudinary').v2
@@ -49,6 +50,7 @@ app.use(fileUpload({ useTempFiles: true }))
 
 app.use('/.netlify/functions/auth', authRouter)
 app.use(notFoundMiddleware)
+app.use(hostValidationMiddleware)
 app.use(errorHandler)
 
 module.exports.handler = serverless(app)

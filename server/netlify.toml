@@ -1,7 +1,8 @@
 [build]
-# This will be run the site build
-command = "yarn build"
-# This is the directory is publishing to netlify's CDN
-publish = "dist"
-# functions build directory
+command = "# no build command"
 functions = "functions-build"
+publish = "dist"
+
+[functions]
+node_bundler = "esbuild"
+external_node_modules = ["express", "mongodb", "vm2"]

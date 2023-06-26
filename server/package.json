@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start": "netlify functions:serve",
-    "build": "netlify functions:build --src functions",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "netlify functions:build --src functions-build",
+    "test": "echo \"Error: no test specified\"",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint:check": "eslint",

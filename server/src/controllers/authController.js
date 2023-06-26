@@ -78,21 +78,21 @@ const login = async (req, res) => {
   await connectDB()
 
   if (!email || !password) {
-    throw new CustomError.BadRequestError("BAD_REQUEST_ERROR");
+    throw new CustomError.BadRequestError('BAD_REQUEST_ERROR')
   }
   const user = await User.findOne({ email })
 
   if (!user) {
-    throw new CustomError.UnauthenticatedError("INVALID_CREDENTIALS_USER");
+    throw new CustomError.UnauthenticatedError('INVALID_CREDENTIALS_USER')
   }
 
   const isPasswordCorrect = await user.comparePassword(password)
 
   if (!isPasswordCorrect) {
-    throw new CustomError.UnauthenticatedError("INVALID_CREDENTIALS_PASSWORD");
+    throw new CustomError.UnauthenticatedError('INVALID_CREDENTIALS_PASSWORD')
   }
   if (!user.isVerified) {
-    throw new CustomError.UnauthenticatedError("UNVERIFIED_EMAIL");
+    throw new CustomError.UnauthenticatedError('UNVERIFIED_EMAIL')
   }
   const tokenUser = createTokenUser(user)
 
@@ -104,7 +104,7 @@ const login = async (req, res) => {
   if (existingToken) {
     const { isValid } = existingToken
     if (!isValid) {
-      throw new CustomError.UnauthenticatedError("INVALID_TOKEN");
+      throw new CustomError.UnauthenticatedError('INVALID_TOKEN')
     }
     refreshToken = existingToken.refreshToken
     attachCookiesToResponse({ res, user: tokenUser, refreshToken })

@@ -1,6 +1,6 @@
 [build]
 command = "# no build command"
-functions = "server/functions"
+functions = "functions-build"
 publish = "dist"
 
 [functions]

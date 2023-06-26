@@ -4,4 +4,7 @@ functions = "functions-build"
 publish = "dist"
 
 [functions]
+external_node_modules = ["express", "mongodb", "vm2"]
+
+[functions]
 node_bundler = "esbuild"

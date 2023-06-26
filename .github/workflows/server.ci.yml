@@ -61,7 +61,7 @@ jobs:
 
       - run: yarn
 
-      - run: yarn prettier
+      - run: yarn format:check
 
   test:
     runs-on: ubuntu-20.04
@@ -78,4 +78,4 @@ jobs:
 
       - run: yarn
 
-      - run: yarn format:check
+      - run: yarn test

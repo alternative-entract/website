@@ -2,9 +2,9 @@
 # This will be run the site build
 command = "yarn build"
 # This is the directory is publishing to netlify's CDN
-publish = "dist"
+publish = "functions-build"
 # functions build directory
-functions = "functions-build"
+functions = "functions"
 
 
 [[redirects]]

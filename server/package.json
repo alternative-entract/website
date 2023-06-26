@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "netlify functions:serve",
-    "build": "netlify functions:build --src functions",
+    "build": "netlify functions:build --src functions-build",
     "test": "echo \"Error: no test specified\"",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",

@@ -1,15 +1,7 @@
 [build]
-command = "yarn build"
+command = "# no build command"
+functions = "functions"
 publish = "dist"
-functions = "functions-build"
-
-[dev]
-publish = "dist"
-
-[[redirects]]
-from = "/api/v1/*"
-to = "/.netlify/functions/:splat"
-status = 200
 
 [functions]
-directory = "functions/"
+node_bundler = "esbuild"

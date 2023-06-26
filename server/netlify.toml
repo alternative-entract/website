@@ -5,3 +5,9 @@ command = "yarn build"
 publish = "dist"
 # functions build directory
 functions = "functions-build"
+
+
+[[redirects]]
+from = "/api/v1/*"
+to = "/.netlify/functions/:splat"
+status = 200

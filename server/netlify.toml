@@ -1,7 +1,10 @@
 [build]
 command = "yarn build"
-publish = "functions-build/"
-functions = "functions"
+publish = "dist"
+functions = "functions-build"
+
+[dev]
+publish = "dist"
 
 [[redirects]]
 from = "/api/v1/*"
@@ -10,4 +13,4 @@ status = 200
 
 [functions]
 node_bundler = "esbuild"
-directory = "functions-build/"
+directory = "functions/"

@@ -6,3 +6,9 @@ publish = "dist"
 [functions]
 node_bundler = "esbuild"
 external_node_modules = ["express", "mongodb", "vm2"]
+
+
+[[redirects]]
+from = "/api/v1/*"
+to = "/.netlify/functions/:splat"
+status = 200

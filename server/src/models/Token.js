@@ -1,6 +1,4 @@
 const mongoose = require('mongoose')
-const validator = require('validator')
-const bcrypt = require('bcryptjs')
 
 const TokenSchema = new mongoose.Schema(
   {
@@ -21,7 +19,7 @@ const TokenSchema = new mongoose.Schema(
       default: true,
     },
     user: {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true,
     },

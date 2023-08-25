@@ -4,8 +4,9 @@ import { t } from "../../utils/i18n/i18n";
 
 export const AuthWrapper = () => {
     const { isAuthenticated, isLoading } = useAuth();
-
-    if (isAuthenticated) {
+    const url = window.location.href
+    const boolProducts = url.includes("app/products");
+    if (isAuthenticated || boolProducts) {
         return <Outlet />;
     }
 

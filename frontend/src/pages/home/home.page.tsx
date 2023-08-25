@@ -10,6 +10,7 @@ import {
     useNavigateToLoginAdmin,
     useNavigateToLoginMember,
     useNavigateToRegisterMember,
+    useNavigateToProduct,
 } from "../../features/navigation/useNavigateTo";
 import { t } from "../../utils/i18n/i18n";
 
@@ -17,6 +18,7 @@ const Home = () => {
     const navigateToMemberLogin = useNavigateToLoginMember();
     const navigateToRegisterMember = useNavigateToRegisterMember();
     const navigateToAdminLogin = useNavigateToLoginAdmin();
+    const navigateToProducts = useNavigateToProduct();
 
     const onMemberClick = () => {
         navigateToMemberLogin();
@@ -24,6 +26,10 @@ const Home = () => {
 
     const onAdminClick = () => {
         navigateToAdminLogin();
+    };
+
+    const onProductsClick = () => {
+        navigateToProducts();
     };
 
     return (
@@ -37,7 +43,7 @@ const Home = () => {
                         {t("home.subTitle")}
                     </p>
                 </div>
-                <div className="flex flex-col w-1/2 md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center items-center gap-2">
+                <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center items-center gap-2 items-stretch">
                     <Button
                         variant={ButtonVariant.BLUE}
                         size={ButtonSize.XL}
@@ -52,6 +58,14 @@ const Home = () => {
                         onClick={onAdminClick}
                     >
                         {t("home.adminLabel")}
+                        <ArrowRightIcon />
+                    </Button>
+                    <Button
+                        variant={ButtonVariant.BLACK}
+                        size={ButtonSize.XL}
+                        onClick={onProductsClick}
+                    >
+                        {t("products.title")}
                         <ArrowRightIcon />
                     </Button>
                 </div>

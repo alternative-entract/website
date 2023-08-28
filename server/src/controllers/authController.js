@@ -10,6 +10,7 @@ const {
   sendVerificationEmail,
   sendResetPassword,
   createHash,
+  sendMailToAdmin,
 } = require('../utils')
 const { BASE_URL, PORT } = require('../utils/settings')
 
@@ -69,6 +70,7 @@ const verifyEmail = async (req, res) => {
   user.verificationToken = ''
 
   await user.save()
+  sendMailToAdmin()
   res.status(StatusCodes.OK).json({ msg: 'Email verified' })
 }
 

@@ -76,7 +76,7 @@ export const REGISTER_FORM_SECTION_LABEL: Record<
 } as const;
 
 export const FORM_PATTERN = {
-    TEXT: /^[a-zA-Z]+$/,
+    TEXT: /^[a-zA-Zé]+$/,
     PHONE_NUMBER: /^[0-9]{10}$/,
     EMAIL: /^\S+@\S+$/i,
     PASSWORD:

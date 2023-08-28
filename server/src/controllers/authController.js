@@ -69,8 +69,8 @@ const verifyEmail = async (req, res) => {
   user.verified = Date.now()
   user.verificationToken = ''
 
-  await user.save();
-  sendMailToAdmin();
+  await user.save()
+  sendMailToAdmin()
   res.status(StatusCodes.OK).json({ msg: 'Email verified' })
 }
 

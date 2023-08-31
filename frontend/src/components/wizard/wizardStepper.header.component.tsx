@@ -36,7 +36,7 @@ const WizardStepIndicator: FC<IWizardStepIndicator> = ({
 
     return (
         <li
-            className={`flex items-center md:mx-4 ${achievedClass} ${currentClass} ${clickableClass}`}
+            className={`flex items-center md:mx-4 lg:min-w-fit md:min-w-1 ${achievedClass} ${currentClass} ${clickableClass}`}
             onClick={handleStepClick}
         >
             <span className="flex items-center">
@@ -71,7 +71,7 @@ export const WizardStepperHeader: FC<IWizardStepperHeader> = ({
                         onStepClicked={goToStep}
                     />
                     {index !== updatedSteps.length - 1 && (
-                        <li className="w-full flex justify-center items-center border-b border-gray-300" />
+                        <li className="w-full flex justify-center items-center border-b border-gray-300 " />
                     )}
                 </Fragment>
             ))}

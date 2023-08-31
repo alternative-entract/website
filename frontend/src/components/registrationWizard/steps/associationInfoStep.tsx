@@ -1,5 +1,5 @@
 import { Controller, useForm } from "react-hook-form";
-import { TextField } from "../../input";
+import { TextField, TelField } from "../../input";
 import { Form } from "../../form";
 import {
     ASSOCIATION_FORM_KEYS,
@@ -74,7 +74,7 @@ export const AssociationInfoStep = () => {
                         },
                     }}
                     render={({ field, formState }) => (
-                        <TextField
+                        <TelField
                             label={t("form.phoneNumberLabel")}
                             placeholder={t("form.phoneNumberPlaceholder")}
                             error={formState.errors.phoneNumber}

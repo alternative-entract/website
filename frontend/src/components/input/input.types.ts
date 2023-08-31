@@ -22,3 +22,6 @@ export type PasswordFieldProps = InputFieldProps & {
 };
 
 export type NumberFieldProps = InputFieldProps;
+
+export type TelephoneFieldProps = InputFieldProps;
+

@@ -46,10 +46,10 @@
             "registrationConfirmation": "Confirmation du formulaire d'inscription"
         },
         "registrationStep": {
-            "associationInfo": "Association",
-            "contactInfo": "Contact",
-            "securityInfo": "Identification",
-            "confirmation": "Confirmation"
+            "associationInfo": "Identité de l'association",
+            "contactInfo": "Coordonnées de Contact",
+            "securityInfo": "Identifiants de connexion",
+            "confirmation": "Confirmation du formulaire d’inscription"
         },
         "postRegistrationInstruction": "Pour finaliser votre demande d'inscription, cliquez sur le lien que nous vous avons envoyé à",
         "inputError": {

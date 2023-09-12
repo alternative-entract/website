@@ -10,6 +10,11 @@
         "lastNamePlaceholder": "Dupond",
         "locationLabel": "Adresse",
         "locationPlaceholder": "1 rue des Champs Elysées",
+        "locationComplementPlaceholder": "Complément d'adresse",
+        "city": "Ville",
+        "postalCode": "Code Postale",
+
+
         "password": {
             "label": "Mot de passe",
             "hints": {

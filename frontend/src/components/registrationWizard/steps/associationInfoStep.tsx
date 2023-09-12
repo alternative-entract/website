@@ -1,5 +1,5 @@
 import { Controller, useForm } from "react-hook-form";
-import { TextField, TelField } from "../../input";
+import { TextField } from "../../input";
 import { Form } from "../../form";
 import {
     ASSOCIATION_FORM_KEYS,
@@ -44,22 +44,72 @@ export const AssociationInfoStep = () => {
                         />
                     )}
                 />
+                {/* Adresses */}
+                <div className="flex flex-col w-full items-center">
+                    <Controller
+                        name={ASSOCIATION_FORM_KEYS.location}
+                        defaultValue=""
+                        control={control}
+                        rules={{ required: t("form.inputError.EMPTY_ERROR") }}
+                        render={({ field, formState }) => (
+                            <TextField
+                                label={t("form.locationLabel")}
+                                placeholder={t("form.locationPlaceholder")}
+                                error={formState.errors.location}
+                                {...field}
+                            />
+                        )}
+                    />
 
-                <Controller
-                    name={ASSOCIATION_FORM_KEYS.location}
-                    defaultValue=""
-                    control={control}
-                    rules={{ required: t("form.inputError.EMPTY_ERROR") }}
-                    render={({ field, formState }) => (
-                        <TextField
-                            label={t("form.locationLabel")}
-                            placeholder={t("form.locationPlaceholder")}
-                            error={formState.errors.location}
-                            {...field}
+                    <Controller
+                        name={ASSOCIATION_FORM_KEYS.location}
+                        defaultValue=""
+                        control={control}
+                        rules={{ required: t("form.inputError.EMPTY_ERROR") }}
+                        render={({ field, formState }) => (
+                            <TextField
+                                placeholder={t(
+                                    "form.locationComplementPlaceholder"
+                                )}
+                                error={formState.errors.location}
+                                {...field}
+                            />
+                        )}
+                    />
+                    <div className="flex flex-row w-full items-center">
+                        <Controller
+                            name={ASSOCIATION_FORM_KEYS.location}
+                            defaultValue=""
+                            control={control}
+                            rules={{
+                                required: t("form.inputError.EMPTY_ERROR"),
+                            }}
+                            render={({ field, formState }) => (
+                                <TextField
+                                    placeholder={t("form.city")}
+                                    error={formState.errors.location}
+                                    {...field}
+                                />
+                            )}
                         />
-                    )}
-                />
-
+                        <Controller
+                            name={ASSOCIATION_FORM_KEYS.location}
+                            defaultValue=""
+                            control={control}
+                            rules={{
+                                required: t("form.inputError.EMPTY_ERROR"),
+                            }}
+                            render={({ field, formState }) => (
+                                <TextField
+                                    placeholder={t("form.postalCode")}
+                                    error={formState.errors.location}
+                                    {...field}
+                                />
+                            )}
+                        />
+                    </div>
+                </div>
+                {/* Fin adresse */}
                 <Controller
                     name={ASSOCIATION_FORM_KEYS.phoneNumber}
                     defaultValue=""
@@ -74,7 +124,9 @@ export const AssociationInfoStep = () => {
                         },
                     }}
                     render={({ field, formState }) => (
-                        <TelField
+                        //à remettre le telField
+                        //<TelField
+                        <TextField
                             label={t("form.phoneNumberLabel")}
                             placeholder={t("form.phoneNumberPlaceholder")}
                             error={formState.errors.phoneNumber}

@@ -29,6 +29,9 @@ export type AssociationInfo =
     | {
           brand: string;
           location: string;
+          address: string;
+          city: string;
+          postalCode: string;
           phoneNumber: string;
       };
 
@@ -52,6 +55,9 @@ export const CONTACT_FORM_KEYS: Record<keyof ContactInfo, string> = {
 export const ASSOCIATION_FORM_KEYS: Record<keyof AssociationInfo, string> = {
     brand: "brand",
     location: "location",
+    address: "address",
+    city: "city",
+    postalCode: "postalCode",
     phoneNumber: "phoneNumber",
 };
 
@@ -62,6 +68,9 @@ export const REGISTER_FORM_SECTION_LABEL: Record<
     associationInfo: {
         brand: t("form.brandLabel"),
         location: t("form.locationLabel"),
+        address: t("form.locationComplementPlaceholder"),
+        city: t("form.city"),
+        postalCode: t("form.postalCode"),
         phoneNumber: t("form.phoneNumberLabel"),
     },
     contactInfo: {

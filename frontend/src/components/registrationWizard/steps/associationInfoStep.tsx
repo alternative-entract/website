@@ -62,7 +62,7 @@ export const AssociationInfoStep = () => {
                     />
 
                     <Controller
-                        name={ASSOCIATION_FORM_KEYS.location}
+                        name={ASSOCIATION_FORM_KEYS.address}
                         defaultValue=""
                         control={control}
                         rules={{ required: t("form.inputError.EMPTY_ERROR") }}
@@ -78,7 +78,7 @@ export const AssociationInfoStep = () => {
                     />
                     <div className="flex flex-row w-full items-center">
                         <Controller
-                            name={ASSOCIATION_FORM_KEYS.location}
+                            name={ASSOCIATION_FORM_KEYS.city}
                             defaultValue=""
                             control={control}
                             rules={{
@@ -93,7 +93,7 @@ export const AssociationInfoStep = () => {
                             )}
                         />
                         <Controller
-                            name={ASSOCIATION_FORM_KEYS.location}
+                            name={ASSOCIATION_FORM_KEYS.postalCode}
                             defaultValue=""
                             control={control}
                             rules={{
